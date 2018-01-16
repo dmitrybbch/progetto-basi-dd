@@ -1,1 +1,5 @@
-flulf
+- artist_data ---> "dates" attributo doppio ---> togli
+- artwork_data ---> "artistId" attributo doppio ---> togli
+- artwork_data ---> "dimensions" attributo doppio ---> togli
+
+
