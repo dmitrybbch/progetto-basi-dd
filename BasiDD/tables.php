@@ -16,6 +16,9 @@
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <link href="css/bootstrap-datepicker.css" rel="stylesheet">
+  <link href="css/bootstrap-datepicker.standalone.css" rel="stylesheet">
+  <link href="css/bootstrap-datepicker3.css"
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -138,8 +141,70 @@
       </ol>
       <!-- Example DataTables Card-->
       <div class="card mb-3">
+          <div class="card-header">
+          <i class="fa fa-table"></i> Dem Forms</div>
+            <div class="card-body">
+              <form method="post" class="form-inline">
+                <div class="form-group" style="margin-left: 15px">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name">
+                </div>
+                <div class="form-group" style="margin-left: 15px">
+                  <label for="lastname">Last Name:</label>
+                  <input type="text" class="form-control" id="lastname">
+                </div>
+                <div class="form-group" style="margin-left: 15px">
+                  <input type="radio" name="gender" value="male">Male
+                  <input type="radio" name="gender" value="female" style="margin-left: 5px">Female
+                </div>
+                
+                <div class="form-group" style="margin-left: 15px">
+                  <div class="input-group date" data-provide="datepicker">
+                    <input type="text" class="form-control">
+                    <div class="input-group-addon">
+                      <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                  </div>
+                  <script type="text/javascript">
+                    $(document).ready(function() {
+                      $("#datepicker").datepicker( {
+                        format: "yyyy", // Notice the Extra space at the beginning
+                        startView: 'decade',
+                        minView: 'decade',
+                        viewSelect: 'decade',
+                        autoclose: true,
+                      });
+                    });
+                  </script>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+                <!--
+                  <div class="form-group" style="margin-left: 15px">
+                  Name:<input type="text"  class="form-control" style="max-width: 15%" id="name">
+                </div>
+                <div class="form-group" style="margin-left: 15px">
+                  Gender:<input type="radio" class="form-control" style="max-width: 30%" id="gender" name="gender" value="male">
+                        <input type="radio" class="form-control" style="max-width: 15%" id="gender" name="gender" value="female">
+                </div>
+                <div class="form-group" style="margin-left: 15px">
+                  Anno nascita/morte (date): <input type="number" style="max-width: 15%" class="form-control" min="0" max ="2018">
+                </div>
+                <div class="form-group" style="margin-left: 15px">
+                  Year of birth: <input type="number" class="form-control" style="max-width: 15%" min="0" max="2018">
+                </div>
+                <div class="form-group" style="margin-left: 15px">
+                  Year of death: <input type="number" class="form-control" style="max-width: 15%" min="0" max="2018">
+                </div>
+                  -->
+                
+              </form>
+            </div>
+              
+      </div>
+      
+      <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Data Table Example</div>
+          <i class="fa fa-table"></i> Da Big Table</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -670,6 +735,7 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
   </div>
 </body>
 
