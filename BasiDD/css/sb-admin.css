@@ -3,6 +3,9 @@
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/master/LICENSE)
  */
+
+
+
 html {
   position: relative;
   min-height: 100%; }
@@ -344,3 +347,9 @@ footer.sticky-footer {
 @media (min-width: 992px) {
   body.sidenav-toggled footer.sticky-footer {
     width: calc(100% - 55px); } }
+
+/*           ADDED IN DEVELOPMENT            */
+
+.formInputField {
+    margin-left: 5em;
+}

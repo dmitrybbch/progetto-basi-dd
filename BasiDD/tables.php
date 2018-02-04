@@ -142,43 +142,41 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
           <div class="card-header">
-          <i class="fa fa-table"></i> Dem Forms</div>
+          <i class="fa fa-table"></i> Find Wannabe Artists and Artworks</div>
             <div class="card-body">
-              <form method="post" class="form-inline">
-                <div class="form-group" style="margin-left: 15px">
-                  <label for="name">Name</label>
-                  <input type="text" class="form-control" id="name">
-                </div>
-                <div class="form-group" style="margin-left: 15px">
-                  <label for="lastname">Last Name:</label>
-                  <input type="text" class="form-control" id="lastname">
-                </div>
-                <div class="form-group" style="margin-left: 15px">
-                  <input type="radio" name="gender" value="male">Male
-                  <input type="radio" name="gender" value="female" style="margin-left: 5px">Female
-                </div>
-                
-                <div class="form-group" style="margin-left: 15px">
-                  <div class="input-group date" data-provide="datepicker">
-                    <input type="text" class="form-control">
-                    <div class="input-group-addon">
-                      <span class="glyphicon glyphicon-th"></span>
+              <form method="post" class="form-inline" id="artistForm">
+                <fieldset>
+                  <legend>
+                    <p><strong>Artists:</strong></p>
+                  </legend>
+                    <div class="form-group" style="margin-left: 15px">
+                        <label for="name"><strong>Name: </strong></label>
+                      <input type="text" class="form-control formInputField" id="name" placeholder="Enter Name">
                     </div>
-                  </div>
-                  <script type="text/javascript">
-                    $(document).ready(function() {
-                      $("#datepicker").datepicker( {
-                        format: "yyyy", // Notice the Extra space at the beginning
-                        startView: 'decade',
-                        minView: 'decade',
-                        viewSelect: 'decade',
-                        autoclose: true,
-                      });
-                    });
-                  </script>
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-                <!--
+                    <div class="form-group" style="margin-left: 15px">
+                      <label for="lastname"><strong>Last Name: </strong></label>
+                      <input type="text" class="form-control formInputField" id="lastname" placeholder="Enter Last Name">
+                    </div>
+                    <div class="form-group" style="margin-left: 15px">
+                      <label for="birthyear"><strong>Birth Year: </strong></label>
+                      <input type="text" class="form-control formInputField" id="birthyear" placeholder="Enter Birth Year" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                    </div>
+                    <div class="form-group" style="margin-left: 15px">
+                      <label for="deathyear"><strong>Death Year: </strong></label>
+                      <input type="text" class="form-control formInputField" id="deathyear" placeholder="Enter Death Year" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                    </div>
+                    <div class="form-group" style="margin-left: 20px">
+                      <input type="radio" name="gender" value="male">Male
+                      <input type="radio" name="gender" value="female" style="margin-left: 5px">Female
+                    </div>
+                </fieldset>
+                <fieldset style="margin-left: 20px">
+                  <legend>
+                    <p><strong>Works:</strong></p>
+                  </legend>
+                   
+                </fieldset>
+                  <!--
                   <div class="form-group" style="margin-left: 15px">
                   Name:<input type="text"  class="form-control" style="max-width: 15%" id="name">
                 </div>
@@ -198,7 +196,8 @@
                   -->
                 
               </form>
-            </div>
+              <button form="artistForm" type="submit" class="btn btn-default" style="display: block; margin-top: 20px">Submit</button>
+              <p></p>
               
       </div>
       
@@ -736,6 +735,7 @@
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
+    
   </div>
 </body>
 
