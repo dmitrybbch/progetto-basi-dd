@@ -5,7 +5,6 @@
  */
 
 
-
 html {
   position: relative;
   min-height: 100%; }
@@ -350,6 +349,10 @@ footer.sticky-footer {
 
 /*           ADDED IN DEVELOPMENT            */
 
-.formInputField {
-    margin-left: 5em;
+.formTable {
+    margin-left: 15px;
+}
+
+.tableSecondSet {
+    padding-left: 20px;
 }

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>TATE WbMsm</title>
+  <title>Make Your Query</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -16,9 +16,7 @@
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
-  <link href="css/bootstrap-datepicker.css" rel="stylesheet">
-  <link href="css/bootstrap-datepicker.standalone.css" rel="stylesheet">
-  <link href="css/bootstrap-datepicker3.css"
+  
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -44,80 +42,21 @@
             <span class="nav-link-text">Charts</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="MakeYourQuery">
           <a class="nav-link" href="tables.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Make your query</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-wrench"></i>
-            <span class="nav-link-text">Chiaveingleseee</span>
-          </a>
-         <!--
-          <ul class="sidenav-second-level collapse" id="collapseComponents">
-            <li>
-              <a href="navbar.html">Navbar</a>
-            </li>
-            <li>
-              <a href="cards.html">Cards</a>
-            </li>
-          </ul>
-         -->
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text">Foglioooooo</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseExamplePages">
-            <li>
-              <a href="blank.html">Blank Page</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Alberiiiiii</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti">
-            <!--
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>
-              <ul class="sidenav-third-level collapse" id="collapseMulti2">
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-              </ul>
-            </li>
-            -->
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="#">
+        
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Other Data">
+          <a class="nav-link" href="otherData.php">
             <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Link</span>
+            <span class="nav-link-text">Other Data</span>
           </a>
         </li>
       </ul>
-
+    <!-- TOGGLE SIDE NAV -->
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
           <a class="nav-link text-center" id="sidenavToggler">
@@ -144,59 +83,58 @@
           <div class="card-header">
           <i class="fa fa-table"></i> Find Wannabe Artists and Artworks</div>
             <div class="card-body">
-              <form method="post" class="form-inline" id="artistForm">
-                <fieldset>
-                  <legend>
-                    <p><strong>Artists:</strong></p>
-                  </legend>
-                    <div class="form-group" style="margin-left: 15px">
-                        <label for="name"><strong>Name: </strong></label>
-                      <input type="text" class="form-control formInputField" id="name" placeholder="Enter Name">
-                    </div>
-                    <div class="form-group" style="margin-left: 15px">
-                      <label for="lastname"><strong>Last Name: </strong></label>
-                      <input type="text" class="form-control formInputField" id="lastname" placeholder="Enter Last Name">
-                    </div>
-                    <div class="form-group" style="margin-left: 15px">
-                      <label for="birthyear"><strong>Birth Year: </strong></label>
-                      <input type="text" class="form-control formInputField" id="birthyear" placeholder="Enter Birth Year" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
-                    </div>
-                    <div class="form-group" style="margin-left: 15px">
-                      <label for="deathyear"><strong>Death Year: </strong></label>
-                      <input type="text" class="form-control formInputField" id="deathyear" placeholder="Enter Death Year" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
-                    </div>
-                    <div class="form-group" style="margin-left: 20px">
-                      <input type="radio" name="gender" value="male">Male
-                      <input type="radio" name="gender" value="female" style="margin-left: 5px">Female
-                    </div>
-                </fieldset>
-                <fieldset style="margin-left: 20px">
-                  <legend>
-                    <p><strong>Works:</strong></p>
-                  </legend>
-                   
-                </fieldset>
-                  <!--
-                  <div class="form-group" style="margin-left: 15px">
-                  Name:<input type="text"  class="form-control" style="max-width: 15%" id="name">
-                </div>
-                <div class="form-group" style="margin-left: 15px">
-                  Gender:<input type="radio" class="form-control" style="max-width: 30%" id="gender" name="gender" value="male">
-                        <input type="radio" class="form-control" style="max-width: 15%" id="gender" name="gender" value="female">
-                </div>
-                <div class="form-group" style="margin-left: 15px">
-                  Anno nascita/morte (date): <input type="number" style="max-width: 15%" class="form-control" min="0" max ="2018">
-                </div>
-                <div class="form-group" style="margin-left: 15px">
-                  Year of birth: <input type="number" class="form-control" style="max-width: 15%" min="0" max="2018">
-                </div>
-                <div class="form-group" style="margin-left: 15px">
-                  Year of death: <input type="number" class="form-control" style="max-width: 15%" min="0" max="2018">
-                </div>
-                  -->
-                
+              <form method="post" id="artistForm">
+                <table class="formTable">
+                  <tr>
+                    <td colspan="2">
+                      <legend>
+                        <p><strong>Artists:</strong></p>
+                      </legend>
+                    </td>
+                    <td colspan="2" class="tableSecondSet">
+                      <legend>
+                        <p><strong>Works:</strong></p>
+                      </legend>
+                    </td>
+                  </tr>
+                  <tr class="form-group">
+                    <td><label for="name"><strong>Name: </strong></label></td>
+                      <td><input type="text" class="form-control" id="name" placeholder="Enter Name"></td>
+                          
+                      <td class="tableSecondSet"><label for="artistName"><strong>Art. Name: </strong></label></td>
+                      <td><input type="text" class="form-control" id="artistName" placeholder="Enter Artist Name"></td>
+                  </tr>
+                  <tr class="form-group">
+                    <td><label for="birthyear"><strong>Birth Year: </strong></label></td>
+                    <td><input type="text" class="form-control" id="birthyear" placeholder="Enter Birth Year" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
+                          
+                    <td class="tableSecondSet"><label for="artistRole"><strong>Artist Role: </strong></label></td>
+                    <td><input type="text" class="form-control" id="artistRole" placeholder="Enter Artist Role"></td>
+                  </tr>
+                  <tr class="form-group">
+                    <td><label for="deathyear"><strong>Death Year: </strong></label></td>
+                    <td><input type="text" class="form-control" id="deathyear" placeholder="Enter Death Year" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
+                          
+                    <td class="tableSecondSet"><label for="title"><strong>Title: </strong></label></td>
+                    <td><input type="text" class="form-control" id="title" placeholder="Enter Title"></td>
+                  </tr>
+                  <tr class="form-group">
+                    <td><input type="radio" name="gender" value="male">Male</td>
+                    <td><input type="radio" name="gender" value="female" style="margin-left: 5px">Female</td>
+                          
+                    <td class="tableSecondSet"><label for="creationYear"><strong>Creation Year: </strong></label></td>
+                    <td><input type="text" class="form-control" id="craetionYear" placeholder="Enter Creation Year" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                            
+                    <td class="tableSecondSet"><label for="creationMethod"><strong>Method: </strong></label></td>
+                    <td><input type="text" class="form-control" id="creationMethod" placeholder="Enter Creation Method"></td>
+                  </tr>
+                </table>
               </form>
-              <button form="artistForm" type="submit" class="btn btn-default" style="display: block; margin-top: 20px">Submit</button>
+              <button form="artistForm" type="submit" class="btn btn-default" style="display: block; margin-top: 20px; position: relative; margin-left: 18%">Submit</button>
               <p></p>
               
       </div>
@@ -696,7 +634,7 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © Your Website 2017</small>
+          <small>Copyright © Nobody 2018</small>
         </div>
       </div>
     </footer>
@@ -704,24 +642,9 @@
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
-    <!-- Logout Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
-          </div>
-        </div>
-      </div>
-    </div>
+
+    
+    
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
