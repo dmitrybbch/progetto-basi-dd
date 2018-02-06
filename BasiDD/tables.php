@@ -119,18 +119,22 @@
                     <td><input type="text" class="form-control" id="title" placeholder="Enter Title"></td>
                   </tr>
                   <tr class="form-group">
-                    <td><input type="radio" name="gender" value="male">Male</td>
-                    <td><input type="radio" name="gender" value="female" style="margin-left: 5px">Female</td>
+                      <td><label for="birthplace"><strong>Place of B.: </strong></label></td>
+                    <td><input type="text" class="form-control" id="birthplace" placeholder="Enter Place of Birth"></td>
                           
                     <td class="tableSecondSet"><label for="creationYear"><strong>Creation Year: </strong></label></td>
-                    <td><input type="text" class="form-control" id="craetionYear" placeholder="Enter Creation Year" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
+                    <td><input type="text" class="form-control" id="creationYear" placeholder="Enter Creation Year" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
                   </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                            
+                  <tr class="form-group">
+                    <td><label for="deathplace"><strong>Place of D.: </strong></label></td>
+                    <td><input type="text" class="form-control" id="deathplace" placeholder="Enter Place of Death"></td>
+                      
                     <td class="tableSecondSet"><label for="creationMethod"><strong>Method: </strong></label></td>
                     <td><input type="text" class="form-control" id="creationMethod" placeholder="Enter Creation Method"></td>
+                  </tr>
+                  <tr class="form-group">
+                    <td><input type="radio" name="gender" value="male">Male</td>
+                    <td><input type="radio" name="gender" value="female" style="margin-left: 5px">Female</td>
                   </tr>
                 </table>
               </form>
