@@ -83,7 +83,7 @@
           <div class="card-header">
           <i class="fa fa-table"></i> Find Wannabe Artists and Artworks</div>
             <div class="card-body">
-              <form method="post" id="artistForm">
+                <form method="post" action="queryTable.php" id="artistForm">
                 <table class="formTable">
                   <tr>
                     <td colspan="2">
@@ -99,38 +99,38 @@
                   </tr>
                   <tr class="form-group">
                     <td><label for="name"><strong>Name: </strong></label></td>
-                      <td><input type="text" class="form-control" id="name" placeholder="Enter Name"></td>
+                      <td><input type="text" name="name" class="form-control" id="name" placeholder="Enter Name"></td>
                           
                       <td class="tableSecondSet"><label for="artistName"><strong>Art. Name: </strong></label></td>
-                      <td><input type="text" class="form-control" id="artistName" placeholder="Enter Artist Name"></td>
+                      <td><input type="text" name="artistName" class="form-control" id="artistName" placeholder="Enter Artist Name"></td>
                   </tr>
                   <tr class="form-group">
                     <td><label for="birthyear"><strong>Birth Year: </strong></label></td>
-                    <td><input type="text" class="form-control" id="birthyear" placeholder="Enter Birth Year" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
+                    <td><input type="text" name="birthyear" class="form-control" id="birthyear" placeholder="Enter Birth Year" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
                           
                     <td class="tableSecondSet"><label for="artistRole"><strong>Artist Role: </strong></label></td>
-                    <td><input type="text" class="form-control" id="artistRole" placeholder="Enter Artist Role"></td>
+                    <td><input type="text" name="artistrole" class="form-control" id="artistRole" placeholder="Enter Artist Role"></td>
                   </tr>
                   <tr class="form-group">
                     <td><label for="deathyear"><strong>Death Year: </strong></label></td>
-                    <td><input type="text" class="form-control" id="deathyear" placeholder="Enter Death Year" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
+                    <td><input type="text" name="deathyear" class="form-control" id="deathyear" placeholder="Enter Death Year" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
                           
                     <td class="tableSecondSet"><label for="title"><strong>Title: </strong></label></td>
-                    <td><input type="text" class="form-control" id="title" placeholder="Enter Title"></td>
+                    <td><input type="text" name="title" class="form-control" id="title" placeholder="Enter Title"></td>
                   </tr>
                   <tr class="form-group">
-                      <td><label for="birthplace"><strong>Place of B.: </strong></label></td>
-                    <td><input type="text" class="form-control" id="birthplace" placeholder="Enter Place of Birth"></td>
+                    <td><label for="birthplace"><strong>Place of B.: </strong></label></td>
+                    <td><input type="text" name="birthplace" class="form-control" id="birthplace" placeholder="Enter Place of Birth"></td>
                           
                     <td class="tableSecondSet"><label for="creationYear"><strong>Creation Year: </strong></label></td>
-                    <td><input type="text" class="form-control" id="creationYear" placeholder="Enter Creation Year" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
+                    <td><input type="text" name="creationyear" class="form-control" id="creationYear" placeholder="Enter Creation Year" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
                   </tr>
                   <tr class="form-group">
                     <td><label for="deathplace"><strong>Place of D.: </strong></label></td>
-                    <td><input type="text" class="form-control" id="deathplace" placeholder="Enter Place of Death"></td>
+                    <td><input type="text" name="deathplace" class="form-control" id="deathplace" placeholder="Enter Place of Death"></td>
                       
                     <td class="tableSecondSet"><label for="creationMethod"><strong>Method: </strong></label></td>
-                    <td><input type="text" class="form-control" id="creationMethod" placeholder="Enter Creation Method"></td>
+                    <td><input type="text" name="creationmethod" class="form-control" id="creationMethod" placeholder="Enter Creation Method"></td>
                   </tr>
                   <tr class="form-group">
                     <td><input type="radio" name="gender" value="male">Male</td>
@@ -142,7 +142,7 @@
               <p></p>
               
       </div>
-      
+      <!--
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> Da Big Table</div>
@@ -632,6 +632,7 @@
         </div>
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
+      -->
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
