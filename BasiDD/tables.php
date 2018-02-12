@@ -83,7 +83,7 @@
           <div class="card-header">
           <i class="fa fa-table"></i> Find Wannabe Artists and Artworks</div>
             <div class="card-body">
-                <form method="post" action="queryTable.php" id="artistForm">
+                <form method="post" action="artistQuery.php" id="artistForm">
                 <table class="formTable">
                   <tr>
                     <td colspan="2">
