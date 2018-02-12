@@ -1,32 +1,55 @@
 <?php
 
-$username = "phpmyadmin";
-$password = "password";
-$servername = "localhost";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-$conn = new mysqli($servername, $username, $password);
+$username = "root";
+$password = "984yu54";
+$servername = "localhost";
+$dbname = "musei";
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
     die("Mannaaggiaaaaaaaaa hai fallitoooo: " . $conn->connect_error);
-} 
+}
 include("tables.php");
-
+$gender = "";
 $array = [
     $nome = $_POST['name'],
     $birthyear = $_POST['birthyear'],
     $deathyear = $_POST['deathyear'],
     $birthplace = $_POST['birthplace'],
     $deathplace = $_POST['deathplace'],
+    $gender
+];
+//controllo del valore di $gender
+if(array_key_exists('gender', $_POST)){
+  $gender = $_POST['gender'];
+}
+echo $gender;
+
+$array2 = [
     $artistname = $_POST['artistname'],
     $artistrole = $_POST['artistrole'],
     $title = $_POST['title'],
     $creationyear = $_POST['creationyear'],
-    $creationmethod = $_POST['creationmethod'],
-    $gender = $_POST['gender']
+    $creationmethod = $_POST['creationmethod']
 ];
-$cueri = http_build_query($array);
-echo $cueri;
+$sql = "SELECT id FROM ARTIST WHERE yearOfDeath=1911";
+$result = mysqli_query($conn, $sql);
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+      echo "id: " . $row["id"]. "<br>";
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
+/*echo $result;
 print'
 <div class="card mb-3">
         <div class="card-header">
@@ -70,4 +93,3 @@ print'
       </div>
     </div>
     ';
-
