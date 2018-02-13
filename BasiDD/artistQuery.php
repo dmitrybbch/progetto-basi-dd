@@ -36,12 +36,12 @@ $array = [
     $gender
 ];
 
-$sql = "SELECT * FROM ARTIST WHERE 
+$sql = "SELECT * FROM artist WHERE 
   name LIKE '%{$nome}%' 
-  AND yearOfBirth LIKE '%{$birthyear}%'
-  AND yearOfDeath LIKE '%{$deathyear}%'
-  AND placeOfBirth LIKE '%{$birthplace}%'
-  AND placeOfDeath LIKE '%{$deathplace}%'";
+  AND year_of_birth LIKE '%{$birthyear}%'
+  AND year_of_death LIKE '%{$deathyear}%'
+  AND place_of_birth LIKE '%{$birthplace}%'
+  AND place_of_death LIKE '%{$deathplace}%'";
   
 if ($result=mysqli_query($conn,$sql))
   {

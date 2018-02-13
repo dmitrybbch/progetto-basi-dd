@@ -29,9 +29,9 @@ $title = $_POST['title'];
 $creationyear = $_POST['creationyear'];
 $creationmethod = $_POST['creationmethod'];
 
-$sql = "SELECT * FROM ARTWORK WHERE 
+$sql = "SELECT * FROM artwork WHERE 
   artist LIKE '%{$artistname}%' 
-  AND artistRole LIKE '%{$artistrole}%'
+  AND artist_role LIKE '%{$artistrole}%'
   AND title LIKE '%{$title}%'
   AND year LIKE '%{$creationyear}%'
   AND medium LIKE '%{$creationMethod}%'";
