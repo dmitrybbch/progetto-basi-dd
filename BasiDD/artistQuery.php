@@ -53,21 +53,21 @@ print'
             <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
+                  <th>Birth Year</th>
+                  <th>Death Year</th>
+                  <th>Birth Place</th>
+                  <th>Death Place</th>
+                  <th>Gender</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
                   <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
+                  <th>Birth Year</th>
+                  <th>Death Year</th>
+                  <th>Birth Place</th>
+                  <th>Death Place</th>
+                  <th>Gender</th>
                 </tr>
               </tfoot>
               <tbody>
@@ -84,14 +84,6 @@ if ($result=mysqli_query($conn,$sql))
   mysqli_free_result($result);
 }
 
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>System Architect</td>
-                  <td>Edinburgh</td>
-                  <td>61</td>
-                  <td>2011/04/25</td>
-                  <td>$320,800</td>
-                </tr>
 print'
               </tbody>
             </table>
