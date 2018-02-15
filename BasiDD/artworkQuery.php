@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 //connessione al database
 $username = "root";
-$password = "984yu54";
+$password = "password"; ///Cambiare in base alla persona
 $servername = "localhost";
 $dbname = "musei";
 
@@ -72,7 +72,7 @@ if ($result=mysqli_query($conn,$sql))
   while ($obj=mysqli_fetch_object($result))
     {
       print'<tr>';
-      printf("<td>%s</td>, <td>%s</td>",$obj->id, $obj->name);
+      printf("<td>%s</td> <td>%s</td>",$obj->id, $obj->name);
       print'</tr>';
     }
   // Free result set
