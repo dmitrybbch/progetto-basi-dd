@@ -16,39 +16,68 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Mannaaggiaaaaaaaaa hai fallitoooo: " . $conn->connect_error);
 }
-include("tables.php");
-$nome = "";
-$birthyear = "";
-$deathyear = "";
-$birthplace = "";
-$deathplace = "";
-$gender="";
-
-if(array_key_exists('gender', $_POST)){
-  $gender = $_POST['gender'];
-}
+//file da includere
+include("RINOMINA.php");
+//set delle variabili
 $nome = $_POST['name'];
 $birthyear = $_POST['birthyear'];
 $deathyear = $_POST['deathyear'];
 $birthplace = $_POST['birthplace'];
 $deathplace = $_POST['deathplace'];
+$gender = $_POST['gender'];
+$artistname = $_POST['artistname'];
+$artistrole = $_POST['artistrole'];
+$title = $_POST['title'];
+$creationyear = $_POST['creationyear'];
+$creationmethod = $_POST['creationmethod'];
+//numero di opere create nell'anno dato in input
+$query1 = "SELECT COUNT(id) 
+            FROM artwork 
+            WHERE creationyear = $creationyear";
+//nome e titolo delle opere fatte dagli artisti morti nell'anno dato in input
+$query2 = "SELECT name, COUNT(title) as numero_opere
+            FROM artist a JOIN artwork o
+            ON a.id = o.artistId
+            WHERE year_of_death = $deathyear";
+//titolo delle opere create dalle associazioni di artisti + nome dell'associazione
+$query3 = "SELECT o.title, a.name
+            FROM artwork o JOIN artist a
+            ON o.artistId = a.id
+            WHERE a.name LIKE %1%";
+//ricevo il valore del submit
+$query_scelta = $_POST['SUBMIT'];   //valore del bottone submit da ricevere per capire quale query eseguire
 
-$sql = "SELECT * FROM artist WHERE 
-  name LIKE '%{$nome}%' 
-  AND year_of_birth LIKE '%{$birthyear}%'
-  AND year_of_death LIKE '%{$deathyear}%'
-  AND place_of_birth LIKE '%{$birthplace}%'
-  AND place_of_death LIKE '%{$deathplace}%'";
-  
-if ($result=mysqli_query($conn,$sql))
-  {
-  while ($obj=mysqli_fetch_object($result))
-    {
-    printf("%s, %s <br>",$obj->id, $obj->name);
-    }
-  // Free result set
-  mysqli_free_result($result);
+switch($query_scelta){
+    case "query1":
+        $mysqli_query($sql1, $conn);
+        printf_function($result);
+        break;
+    case "query2":
+        $mysqli_query($sql2, $conn);
+        printf_function($result);
+        break;
+    case "query3":
+        $mysqli_query($sql3, $conn);
+        printf_function($result);
+        break;
+    case "query4":
+        $mysqli_query($sql4, $conn);
+        printf_function($result);
+        break;
+    case "query5":
+        $mysqli_query($sql5, $conn);
+        printf_function($result);
+        break;
 }
+function print_result($result){
+    while ($obj=mysqli_fetch_object($result))
+    {
+    printf("%s, %s <br>",$obj->id, $obj->name); //editare i campi da stampare
+    }
+    // Free result set
+    mysqli_free_result($result);
+}
+
 $conn->close();
 /*echo $result;
 print'
