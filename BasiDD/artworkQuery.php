@@ -36,17 +36,8 @@ $sql = "SELECT * FROM artwork WHERE
   AND year LIKE '%{$creationyear}%'
   AND medium LIKE '%{$creationMethod}%'";
   
-if ($result=mysqli_query($conn,$sql))
-  {
-  while ($obj=mysqli_fetch_object($result))
-    {
-    printf("%s, %s <br>",$obj->id, $obj->name);
-    }
-  // Free result set
-  mysqli_free_result($result);
-}
-$conn->close();
-/*echo $result;
+
+
 print'
 <div class="card mb-3">
         <div class="card-header">
@@ -75,18 +66,26 @@ print'
                 </tr>
               </tfoot>
               <tbody>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>System Architect</td>
-                  <td>Edinburgh</td>
-                  <td>61</td>
-                  <td>2011/04/25</td>
-                  <td>$320,800</td>
-                </tr>
+';
+if ($result=mysqli_query($conn,$sql))
+  {
+  while ($obj=mysqli_fetch_object($result))
+    {
+      print'<tr>';
+      printf("<td>%s</td>, <td>%s</td>",$obj->id, $obj->name);
+      print'</tr>';
+    }
+  // Free result set
+  mysqli_free_result($result);
+}
+
+print'
               </tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
-    ';
+';
+
+$conn->close();

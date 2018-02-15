@@ -41,8 +41,6 @@ $sql = "SELECT * FROM artist WHERE
   AND place_of_death LIKE '%{$deathplace}%'";
   
 
-$conn->close();
-
 print'
 <div class="card mb-3">
         <div class="card-header">
@@ -92,3 +90,5 @@ print'
       </div>
     </div>
 ';
+
+$conn->close();
