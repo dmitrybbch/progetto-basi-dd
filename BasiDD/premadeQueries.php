@@ -17,27 +17,25 @@ if ($conn->connect_error) {
     die("Mannaaggiaaaaaaaaa hai fallitoooo: " . $conn->connect_error);
 }
 //file da includere
-include("tables.php");
+include("RINOMINA.php");
 //set delle variabili
-$gender = "";
-if(array_key_exists('gender', $_POST)){
-  $gender = $_POST['gender'];
-}
 $nome = $_POST['name'];
 $birthyear = $_POST['birthyear'];
 $deathyear = $_POST['deathyear'];
 $birthplace = $_POST['birthplace'];
 $deathplace = $_POST['deathplace'];
+$gender = $_POST['gender'];
 $artistname = $_POST['artistname'];
 $artistrole = $_POST['artistrole'];
 $title = $_POST['title'];
 $creationyear = $_POST['creationyear'];
 $creationmethod = $_POST['creationmethod'];
+
 //numero di opere create nell'anno dato in input
 $query1 = "SELECT COUNT(id) 
             FROM artwork 
             WHERE creationyear = $creationyear";
-//nome e numero delle opere fatte dagli artisti morti nell'anno dato in input
+//nome e titolo delle opere fatte dagli artisti morti nell'anno dato in input
 $query2 = "SELECT name, COUNT(title) as numero_opere
             FROM artist a JOIN artwork o
             ON a.id = o.artistId
@@ -48,7 +46,7 @@ $query3 = "SELECT o.title, a.name
             ON o.artistId = a.id
             WHERE a.name LIKE %1%";
 //ricevo il valore del submit
-$query_scelta = $_POST['submit'];
+$query_scelta = $_POST['SUBMIT'];   //valore del bottone submit da ricevere per capire quale query eseguire
 
 switch($query_scelta){
     case "query1":
