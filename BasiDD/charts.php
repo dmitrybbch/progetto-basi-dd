@@ -16,6 +16,8 @@
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <!-- PHP Chart creator styles -->
+  <link rel="stylesheet" href="/lib/js/chartphp.css">
   
 </head>
 
@@ -128,6 +130,9 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-charts.js"></script>
+    <!-- PHP Chart creator js file -->
+    <script src="lib/js/chartphp.js"></script>
+    
   </div>
 </body>
 
