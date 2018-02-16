@@ -1,12 +1,12 @@
 <?php
-//verifica della presenza di errori
+//verifica della presenza di erroriwetyuikl
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 //connessione al database
 $username = "root";
-$password = "984yu54";
+$password = "984yu54";   ///Cambiare in base alla persona
 $servername = "localhost";
 $dbname = "musei";
 
@@ -35,6 +35,7 @@ $deathplace = $_POST['deathplace'];
 
 $sql = "SELECT * FROM artist WHERE 
   name LIKE '%{$nome}%' 
+  AND gender = $gender
   AND year_of_birth LIKE '%{$birthyear}%'
   AND year_of_death LIKE '%{$deathyear}%'
   AND place_of_birth LIKE '%{$birthplace}%'
@@ -50,22 +51,26 @@ print'
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
+                  <th>ID</th>
                   <th>Name</th>
+                  <th>Gender</th>
                   <th>Birth Year</th>
                   <th>Death Year</th>
                   <th>Birth Place</th>
                   <th>Death Place</th>
-                  <th>Gender</th>
+                  <th>URL</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-                  <th>Name</th>
-                  <th>Birth Year</th>
-                  <th>Death Year</th>
-                  <th>Birth Place</th>
-                  <th>Death Place</th>
-                  <th>Gender</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Birth Year</th>
+                <th>Death Year</th>
+                <th>Birth Place</th>
+                <th>Death Place</th>
+                <th>URL</th>
                 </tr>
               </tfoot>
               <tbody>
@@ -74,7 +79,7 @@ if ($result=mysqli_query($conn,$sql))
   {
   while ($obj=mysqli_fetch_object($result)){
     print'<tr>';
-    printf("<td>%s</td>, <td>%s</td>",$obj->id, $obj->name);
+    printf("<td>%d</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td>",$obj->id, $obj->name, $obj->gender, $obj->year_of_birth, $obj->year_of_death, $obj->place_of_birth, $obj->place_of_death, $obj->url);
     print'</tr>';
     
     }
