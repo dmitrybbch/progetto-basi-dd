@@ -88,7 +88,22 @@
             <div class="card-body">
               <canvas id="myBarChart" width="100" height="50"></canvas>
             </div>
-            <div class="card-footer small">Updated yesterday at 11:59 PM</div>
+            <div class="card-footer small">
+              <!-- Menu a cascata -->
+              <form action="chartQueries.php" method="post" id="barChartQueryForm">
+                <div class="form-group">
+                  <label for="inputQueryBarChart">Select the data to show:</label>
+                  <select class="form-control" id="inputQueryBarChart" onchange="this.form.submit()">
+                    <option value="worksperyear">Works Per Year</option>
+                    <option value="Query 2">Query 2</option>
+                    <option value="Query 3">Query 3</option>
+                    <option value="Query 4">Query 4</option>
+                  </select>
+                </div>
+              </form>
+              
+              <!-- /Menu a cascata -->
+            </div>
           </div>
         </div>
         <div class="col-lg-4">
@@ -99,7 +114,22 @@
             <div class="card-body">
               <canvas id="myPieChart" width="100%" height="100"></canvas>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            <div class="card-footer small">
+              <!-- Menu a cascata -->
+              <form action="chartQueries.php" method="post" id="barChartQueryForm" >
+                <div class="form-group">
+                  <label for="inputQueryBarChart">Select the data to show:</label>
+                  <select class="form-control" id="inputQueryBarChart" onchange="this.form.submit()">
+                    <option value="methodfrequency">Method Frequency</option>
+                    <option value="Query 2">Query 2</option>
+                    <option value="Query 3">Query 3</option>
+                    <option value="Query 4">Query 4</option>
+                  </select>
+                </div>
+              </form>
+              
+              <!-- /Menu a cascata -->
+            </div>
           </div>
         </div>
       </div>
