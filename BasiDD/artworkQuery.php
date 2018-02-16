@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 //connessione al database
 $username = "root";
 $password = "password"; ///Cambiare in base alla persona
-$servername = "984yu54";
+$servername = "localhost";
 $dbname = "musei";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
