@@ -22,6 +22,7 @@
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="index.php"> <img style="max-width:45%;" src="tate-logo.png"> Wannabe Museum</a>
@@ -49,8 +50,7 @@
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Make your query</span>
           </a>
-        </li>
-        
+        </li>        
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Other Data">
           <a class="nav-link" href="otherData.php">
             <i class="fa fa-fw fa-link"></i>
@@ -77,16 +77,15 @@
         </li>
         <li class="breadcrumb-item active">Charts</li>
       </ol>
-      <!-- Area Chart Example-->
-      
+      <!-- Area Chart -->      
       <div class="row mb-3">
         <div class="col-lg-8">
-          <!-- Example Bar Chart Card-->
+          <!--Bar Chart -->
           <div class="card mb-3">
             <div class="card-header">
               <i class="fa fa-bar-chart"></i> Bar Charts</div>
             <div class="card-body">
-              <canvas id="myBarChart" width="100" height="50"></canvas>
+              <!--<canvas id="myBarChart" width="100" height="50"></canvas>-->
             </div>
             <div class="card-footer small">
               <!-- Menu a cascata -->
@@ -95,24 +94,26 @@
                   <label for="inputQueryBarChart">Select the data to show:</label>
                   <select class="form-control" id="inputQueryBarChart" onchange="this.form.submit()">
                     <option value="worksperyear">Works Per Year</option>
-                    <option value="Query 2">Query 2</option>
-                    <option value="Query 3">Query 3</option>
-                    <option value="Query 4">Query 4</option>
+                    <option value="query1">Query 1</option>
+                    <option value="query2">Query 2</option>
+                    <option value="query3">Query 3</option>
+                    <option value="query4">Query 4</option>
                   </select>
                 </div>
-              </form>
-              
+              </form>              
               <!-- /Menu a cascata -->
             </div>
           </div>
         </div>
         <div class="col-lg-4">
-          <!-- Example Pie Chart Card-->
+          <!-- Pie Chart -->
           <div class="card mb-3">
             <div class="card-header">
               <i class="fa fa-pie-chart"></i> Pie Charts</div>
             <div class="card-body">
-              <canvas id="myPieChart" width="100%" height="100"></canvas>
+              <!--<canvas id="myPieChart" width="100%" height="100"></canvas>-->
+              
+              <!--<canvas id="myBarChart" width="100" height="50"></canvas>-->
             </div>
             <div class="card-footer small">
               <!-- Menu a cascata -->
@@ -121,19 +122,41 @@
                   <label for="inputQueryBarChart">Select the data to show:</label>
                   <select class="form-control" id="inputQueryBarChart" onchange="this.form.submit()">
                     <option value="methodfrequency">Method Frequency</option>
-                    <option value="Query 2">Query 2</option>
-                    <option value="Query 3">Query 3</option>
-                    <option value="Query 4">Query 4</option>
+                    <option value="query1">Query 1</option>
+                    <option value="query2">Query 2</option>
+                    <option value="query3">Query 3</option>
+                    <option value="query4">Query 4</option>
                   </select>
                 </div>
-              </form>
-              
+              </form>    
               <!-- /Menu a cascata -->
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="row mb-3">
+        <div class="col-lg-8">
+          <!-- Card per l'inserimento dei dati-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <label> Data input</label>
+            <div class="card-body">
+            <form action="chartQueries.php" method="post" id="inputDataQueryForm">
+                <div class="form-group">
+                  <label for="inputQueryBarChart">Select the data to show:</label><br>
+                  Anno di nascita: <input type="text" name="birthyear"><br>
+                  Anno di morte: <input type="text" name="deathyear"><br>
+                  Sesso:  <input type="text" name="gender"><br>
+                  Anno di nascita:  <input type="text" name="birthplace"><br>
+                  Anno di morte:  <input type="text" name="deathplace"><br>
+                </div>
+              </form>
+            </div>             
+              <!-- /Menu a cascata -->
+            </div>
+          </div>
+        </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
@@ -147,7 +170,6 @@
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
-    
     
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -165,5 +187,4 @@
     
   </div>
 </body>
-
 </html>

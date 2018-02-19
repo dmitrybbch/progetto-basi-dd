@@ -33,55 +33,69 @@ $artistrole = $_POST['artistrole'];
 $title = $_POST['title'];
 $creationyear = $_POST['creationyear'];
 $creationmethod = $_POST['creationmethod'];
-//numero di opere create nel XIX secolo
-$query1 = "SELECT COUNT(id) 
+//numero di opere create nel XX secolo
+$query1 = "SELECT COUNT(*) as conto, year
             FROM artwork 
-            WHERE year BETWEEN #01/01/1901# AND #31/12/2000# 
+            WHERE year BETWEEN '1/01/1901' AND '31/12/2000' 
             GROUP BY year";
-//numero di opere acquisite dai musei nel corso degli anni
-$query2 = "SELECT COUNT(*)
+//numero di opere acquisite dai musei nel corso degli anni dalla fondazione di Tate Museum
+$query2 = "SELECT COUNT(*) as conto, acquisition_year
             FROM artwork
             WHERE 1
             GROUP BY acquisition_year";
-//numero di opere create dagli artisti di x nazionalità
-$query3 = "SELECT COUNT(*)
+//numero di opere create dagli artisti di x nazionalità (usa place_of_birth)
+$query3 = "SELECT a.name, COUNT(*) as conto
             FROM artwork o JOIN artist a
             ON o.artist_id = a.id
-            WHERE a.place_of_birth LIKE '%{$birthplace}%'";
+            WHERE a.place_of_birth LIKE '%{$birthplace}%'
+            GROUP BY a.name";
 //numero di opere fatte dagli artisti ancora vivi
-$query4 = "SELECT COUNT(*)
+$query4 = "SELECT COUNT(*) as conto, a.name
             FROM artwork o JOIN artist a
             ON o.artist_id = a.id
-            WHERE year_of_death IS NULL";
+            WHERE year_of_death = ''
+            GROUP BY a.name";
 //ricevo il valore del submit
 $query_scelta = $_POST['submit'];
-
+$arrayx;
+$arrayy;
+$i=0;
 switch($query_scelta){
-    case "query1":
-        $mysqli_query($query1, $conn);
-        printf_function($result);
+        case "query1":
+        $result = $mysqli_query($query1, $conn);
+        while ($obj=mysqli_fetch_object($result))
+        {
+          $arrayx[$i] = $obj->conto;
+          $arrayy[$i] = $obj->year;
+          $i++;
+        }
         break;
     case "query2":
-        $mysqli_query($query2, $conn);
-        printf_function($result);
+        $result = $mysqli_query($query2, $conn);
+        while ($obj=mysqli_fetch_object($result))
+        {
+          $arrayx[$i] = $obj->conto;
+          $arrayy[$i] = $obj->acquisition_year;
+        }
         break;
     case "query3":
-        $mysqli_query($query3, $conn);
-        printf_function($result);
+        $result = $mysqli_query($query3, $conn);
+        while ($obj=mysqli_fetch_object($result))
+        {
+          $arrayx[$i] = $obj->name;
+          $arrayy[$i] = $obj->conto;
+        }
         break;
     case "query4":
-        $mysqli_query($query4, $conn);
-        printf_function($result);
+        $result = $mysqli_query($query4, $conn);
+        while ($obj=mysqli_fetch_object($result))
+        {
+          $arrayx[$i] = $obj->conto;
+          $arrayy[$i] = $obj->name;
+        }
         break;
 }
-function print_result($result){
-    while ($obj=mysqli_fetch_object($result))
-    {
-    printf("%s, %s <br>",$obj->id, $obj->name); //editare i campi da stampare
-    }
-    // Free result set
-    mysqli_free_result($result);
-}
+mysqli_free_result($result);
 
 $conn->close();
 /*echo $result;
