@@ -33,42 +33,44 @@ $artistrole = $_POST['artistrole'];
 $title = $_POST['title'];
 $creationyear = $_POST['creationyear'];
 $creationmethod = $_POST['creationmethod'];
-//numero di opere create nell'anno dato in input
+//numero di opere create nel XIX secolo
 $query1 = "SELECT COUNT(id) 
             FROM artwork 
-            WHERE creationyear = $creationyear";
-//nome e numero delle opere fatte dagli artisti morti nell'anno dato in input
-$query2 = "SELECT name, COUNT(title) as numero_opere
-            FROM artist a JOIN artwork o
-            ON a.id = o.artistId
-            WHERE year_of_death = $deathyear";
-//titolo delle opere create dalle associazioni di artisti + nome dell'associazione
-$query3 = "SELECT o.title, a.name
+            WHERE year BETWEEN #01/01/1901# AND #31/12/2000# 
+            GROUP BY year";
+//numero di opere acquisite dai musei nel corso degli anni
+$query2 = "SELECT COUNT(*)
+            FROM artwork
+            WHERE 1
+            GROUP BY acquisition_year";
+//numero di opere create dagli artisti di x nazionalità
+$query3 = "SELECT COUNT(*)
             FROM artwork o JOIN artist a
-            ON o.artistId = a.id
-            WHERE a.name LIKE %1%";
+            ON o.artist_id = a.id
+            WHERE a.place_of_birth LIKE '%{$birthplace}%'";
+//numero di opere fatte dagli artisti ancora vivi
+$query4 = "SELECT COUNT(*)
+            FROM artwork o JOIN artist a
+            ON o.artist_id = a.id
+            WHERE year_of_death IS NULL";
 //ricevo il valore del submit
 $query_scelta = $_POST['submit'];
 
 switch($query_scelta){
     case "query1":
-        $mysqli_query($sql1, $conn);
+        $mysqli_query($query1, $conn);
         printf_function($result);
         break;
     case "query2":
-        $mysqli_query($sql2, $conn);
+        $mysqli_query($query2, $conn);
         printf_function($result);
         break;
     case "query3":
-        $mysqli_query($sql3, $conn);
+        $mysqli_query($query3, $conn);
         printf_function($result);
         break;
     case "query4":
-        $mysqli_query($sql4, $conn);
-        printf_function($result);
-        break;
-    case "query5":
-        $mysqli_query($sql5, $conn);
+        $mysqli_query($query4, $conn);
         printf_function($result);
         break;
 }
