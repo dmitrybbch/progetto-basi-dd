@@ -1,9 +1,22 @@
 <?php
-include("/lib/inc/chartphp_dist.php");
-$p = new chartphp();
-$p->data =array(array(1,2,3,4,5,6,7,8,9),array(9,8,7,6,5,4,3,2,1));
-$p->chart_type = "area";
-//render del grafico e ottenimento dell'output html/js
-$out = $p->render('c1');
-echo $out;
+    $s1 = $arrayx;
+    $ticks = $arrayy;
+    
+    $pc = new C_PhpChartX(array($s1),'chart1');
+    $pc->add_plugins(array('highlighter','pointLabels'));
+	$pc->set_animate(true);
+	$pc->set_series_default(array(
+		'renderer'=>'plugin::BarRenderer',
+		'pointLabels'=> array('show'=>true)));
+    $pc->set_axes(array(
+         'xaxis'=>array(
+			'renderer'=>'plugin::CategoryAxisRenderer',
+			'ticks'=>$ticks)
+    ));
+    $pc->set_highlighter(array('show'=>false));
+    $pc->bind_js('jqplotDataClick',array(
+		'series'=>'seriesIndex',
+		'point'=>'pointIndex',
+		'data'=>'data'));
+    $pc->draw(400,300);
 ?>

@@ -117,7 +117,7 @@
             </div>
             <div class="card-footer small">
               <!-- Menu a cascata -->
-              <form action="chartQueries.php" method="post" id="barChartQueryForm" >
+              <form action="premadeQueries.php" method="post" id="barChartQueryForm" >
                 <div class="form-group">
                   <label for="inputQueryBarChart">Select the data to show:</label>
                   <select class="form-control" id="inputQueryBarChart" onchange="this.form.submit()">
@@ -142,14 +142,29 @@
             <div class="card-header">
               <label> Data input</label>
             <div class="card-body">
-            <form action="chartQueries.php" method="post" id="inputDataQueryForm">
+            <form action="premadeQueries.php" method="post" id="inputDataQueryForm">
                 <div class="form-group">
                   <label for="inputQueryBarChart">Select the data to show:</label><br>
-                  Anno di nascita: <input type="text" name="birthyear"><br>
-                  Anno di morte: <input type="text" name="deathyear"><br>
-                  Sesso:  <input type="text" name="gender"><br>
-                  Anno di nascita:  <input type="text" name="birthplace"><br>
-                  Anno di morte:  <input type="text" name="deathplace"><br>
+                  <table>
+                    <tr>
+                      <td><label for="name"><strong>Anno di nascita: </strong></label></td>
+                      <td><input type="text" name="birthyear"></td>
+                    </tr>
+                      <td><label for="name"><strong>Anno di morte: </strong></label></td>
+                      <td><input type="text" name="deathyear"></td>
+                    <tr>
+                      <td><label for="name"><strong>Sesso: </strong></label></td>  
+                      <td><input type="text" name="gender"></td>
+                    </tr>
+                    <tr>
+                      <td><label for="name"><strong>Luogo di nascita: </strong></label></td>
+                      <td><input type="text" name="birthplace"></td>
+                    </tr>
+                    <tr>
+                      <td><label for="name"><strong>Luogo di morte: </strong></label></td> 
+                      <td><input type="text" name="deathplace"></td>
+                    <tr>
+                  </table>
                 </div>
               </form>
             </div>             
