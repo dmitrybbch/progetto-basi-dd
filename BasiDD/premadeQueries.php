@@ -23,7 +23,36 @@ $gender = "";
 if(array_key_exists('gender', $_POST)){
   $gender = $_POST['gender'];
 }
-$nome = $_POST['name'];
+$nome = $_POST['name'];$graph = new Graph(300,250);
+    $graph->SetScale("textlin");
+    
+    $theme_class=new UniversalTheme;
+    
+    $graph->SetTheme($theme_class);
+    $graph->img->SetAntiAliasing(false);
+    $graph->title->Set('Filled Y-grid');
+    $graph->SetBox(false);
+    
+    $graph->img->SetAntiAliasing();
+    
+    $graph->yaxis->HideZeroLabel();
+    $graph->yaxis->HideLine(false);
+    $graph->yaxis->HideTicks(false,false);
+    
+    $graph->xgrid->Show();
+    $graph->xgrid->SetLineStyle("solid");
+    $graph->xaxis->SetTickLabels($arrayx);
+    $graph->xgrid->SetColor('#E3E3E3');
+    
+    // Create the first line
+    $p1 = new LinePlot($arrayy);
+    $graph->Add($p1);
+    $p1->SetColor("#6495ED");
+    $p1->SetLegend('Line 1');
+
+    $graph->legend->SetFrameWeight(1);
+    
+    // Output line
 $birthyear = $_POST['birthyear'];
 $deathyear = $_POST['deathyear'];
 $birthplace = $_POST['birthplace'];
@@ -102,7 +131,7 @@ switch($query_scelta){
 mysqli_free_result($result);
 
 $conn->close();
-/*echo $result;
+/*echo $result;0.
 print'
 <div class="card mb-3">
         <div class="card-header">
