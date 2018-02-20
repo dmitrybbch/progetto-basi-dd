@@ -57,16 +57,17 @@ $query4 = "SELECT COUNT(*) as conto, a.name
             GROUP BY a.name";
 //ricevo il valore del submit
 $query_scelta = $_POST['submit'];
-$arrayx;
-$arrayy;
-$i=0;
+$arrayx = [];
+$arrayy = [];
+$i = 0;
 switch($query_scelta){
         case "query1":
         $result = $mysqli_query($query1, $conn);
         while ($obj=mysqli_fetch_object($result))
         {
-          $arrayx[$i] = $obj->conto;
-          $arrayy[$i] = $obj->year;
+          $arrayx[$i] = $obj->year;
+          $arrayy[$i] = $obj->conto;
+          echo $arrayx[$i], $arrayy[$i];
           $i++;
         }
         break;
@@ -76,6 +77,7 @@ switch($query_scelta){
         {
           $arrayx[$i] = $obj->conto;
           $arrayy[$i] = $obj->acquisition_year;
+          $i++;
         }
         break;
     case "query3":
@@ -84,6 +86,7 @@ switch($query_scelta){
         {
           $arrayx[$i] = $obj->name;
           $arrayy[$i] = $obj->conto;
+          $i++;
         }
         break;
     case "query4":
@@ -92,6 +95,7 @@ switch($query_scelta){
         {
           $arrayx[$i] = $obj->conto;
           $arrayy[$i] = $obj->name;
+          $i++;
         }
         break;
 }
@@ -142,24 +146,39 @@ print'
       </div>
     </div>
     ';*/
+    // content="text/plain; charset=utf-8"
+    require_once ('jpgraph/jpgraph.php');
+    require_once ('jpgraph/jpgraph_line.php');
     
-    $s1 = $arrayx;
-    $ticks = $arrayy;
+    // Setup the graph
+    $graph = new Graph(300,250);
+    $graph->SetScale("textlin");
     
-    $pc = new C_PhpChartX(array($s1),'chart1');
-    $pc->add_plugins(array('highlighter','pointLabels'));
-	$pc->set_animate(true);
-	$pc->set_series_default(array(
-		'renderer'=>'plugin::BarRenderer',
-		'pointLabels'=> array('show'=>true)));
-    $pc->set_axes(array(
-         'xaxis'=>array(
-			'renderer'=>'plugin::CategoryAxisRenderer',
-			'ticks'=>$ticks)
-    ));
-    $pc->set_highlighter(array('show'=>false));
-    $pc->bind_js('jqplotDataClick',array(
-		'series'=>'seriesIndex',
-		'point'=>'pointIndex',
-		'data'=>'data'));
-    $pc->draw(400,300);
+    $theme_class=new UniversalTheme;
+    
+    $graph->SetTheme($theme_class);
+    $graph->img->SetAntiAliasing(false);
+    $graph->title->Set('Filled Y-grid');
+    $graph->SetBox(false);
+    
+    $graph->img->SetAntiAliasing();
+    
+    $graph->yaxis->HideZeroLabel();
+    $graph->yaxis->HideLine(false);
+    $graph->yaxis->HideTicks(false,false);
+    
+    $graph->xgrid->Show();
+    $graph->xgrid->SetLineStyle("solid");
+    $graph->xaxis->SetTickLabels($arrayx);
+    $graph->xgrid->SetColor('#E3E3E3');
+    
+    // Create the first line
+    $p1 = new LinePlot($arrayy);
+    $graph->Add($p1);
+    $p1->SetColor("#6495ED");
+    $p1->SetLegend('Line 1');
+
+    $graph->legend->SetFrameWeight(1);
+    
+    // Output line
+    $graph->Stroke();

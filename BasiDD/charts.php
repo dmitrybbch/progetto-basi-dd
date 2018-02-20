@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
   <meta charset="utf-8">
@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Pies And Charts</title>
+  <title>Alcune query con grafici</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -25,7 +25,7 @@
 
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.php"> <img style="max-width:45%;" src="tate-logo.png"> Wannabe Museum</a>
+    <a class="navbar-brand" href="index.php"> <img style="max-width:45%;" src="tate-logo.png"> Museum</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -36,19 +36,19 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="index.php">
             <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Dashboard</span>
+            <span class="nav-link-text">Homepage</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="charts.php">
             <i class="fa fa-fw fa-area-chart"></i>
-            <span class="nav-link-text">Charts</span>
+            <span class="nav-link-text">Query e grafici</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="MakeYourQuery">
           <a class="nav-link" href="tables.php">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Make your query</span>
+            <span class="nav-link-text">Ricerca di opere e artisti</span>
           </a>
         </li>        
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Other Data">
@@ -140,13 +140,14 @@
           <!-- Card per l'inserimento dei dati-->
           <div class="card mb-3">
             <div class="card-header">
-              <label> Data input</label>
+                <label>Data input</label>
+            </div>
             <div class="card-body">
             <form action="premadeQueries.php" method="post" id="inputDataQueryForm">
                 <div class="form-group">
-                  <label for="inputQueryBarChart">Select the data to show:</label><br>
+                  <label for="inputQueryBarChart">Immetti i parametri per le ricerche:</label><br>
                   <table>
-                    <tr>
+                    <tr class="form-group">
                       <td><label for="name"><strong>Anno di nascita: </strong></label></td>
                       <td><input type="text" name="birthyear"></td>
                     </tr>
@@ -177,7 +178,7 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © Your Website 2017</small>
+          <small>Dmitry Babich & Vittorio Cavicchioli</small>
         </div>
       </div>
     </footer>
