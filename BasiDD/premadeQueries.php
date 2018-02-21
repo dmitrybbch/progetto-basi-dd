@@ -4,9 +4,11 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+include("./chartPhp/lib/inc/chartphp_dist.php");
+
 //connessione al database
 $username = "root";
-$password = "984yu54";
+$password = "password";
 $servername = "localhost";
 $dbname = "musei";
 
@@ -23,35 +25,8 @@ $gender = "";
 if(array_key_exists('gender', $_POST)){
   $gender = $_POST['gender'];
 }
-$nome = $_POST['name'];$graph = new Graph(300,250);
-    $graph->SetScale("textlin");
-    
-    $theme_class=new UniversalTheme;
-    
-    $graph->SetTheme($theme_class);
-    $graph->img->SetAntiAliasing(false);
-    $graph->title->Set('Filled Y-grid');
-    $graph->SetBox(false);
-    
-    $graph->img->SetAntiAliasing();
-    
-    $graph->yaxis->HideZeroLabel();
-    $graph->yaxis->HideLine(false);
-    $graph->yaxis->HideTicks(false,false);
-    
-    $graph->xgrid->Show();
-    $graph->xgrid->SetLineStyle("solid");
-    $graph->xaxis->SetTickLabels($arrayx);
-    $graph->xgrid->SetColor('#E3E3E3');
-    
-    // Create the first line
-    $p1 = new LinePlot($arrayy);
-    $graph->Add($p1);
-    $p1->SetColor("#6495ED");
-    $p1->SetLegend('Line 1');
+$nome = $_POST['name'];
 
-    $graph->legend->SetFrameWeight(1);
-    
     // Output line
 $birthyear = $_POST['birthyear'];
 $deathyear = $_POST['deathyear'];
@@ -62,6 +37,7 @@ $artistrole = $_POST['artistrole'];
 $title = $_POST['title'];
 $creationyear = $_POST['creationyear'];
 $creationmethod = $_POST['creationmethod'];
+
 //numero di opere create nel XX secolo
 $query1 = "SELECT COUNT(*) as conto, year
             FROM artwork 
@@ -90,7 +66,7 @@ $arrayx = [];
 $arrayy = [];
 $i = 0;
 switch($query_scelta){
-        case "query1":
+    case "query1":
         $result = $mysqli_query($query1, $conn);
         while ($obj=mysqli_fetch_object($result))
         {
@@ -130,51 +106,63 @@ switch($query_scelta){
 }
 mysqli_free_result($result);
 
+/*
+// content="text/plain; charset=utf-8"
+    require_once ('jpgraph/jpgraph.php');
+    require_once ('jpgraph/jpgraph_line.php');
+    
+    // Setup the graph
+    $graph = new Graph(300,250);
+    $graph->SetScale("textlin");
+    
+    $theme_class=new UniversalTheme;
+    
+    $graph->SetTheme($theme_class);
+    $graph->img->SetAntiAliasing(false);
+    $graph->title->Set('Filled Y-grid');
+    $graph->SetBox(false);
+    
+    $graph->img->SetAntiAliasing();
+    
+    $graph->yaxis->HideZeroLabel();
+    $graph->yaxis->HideLine(false);
+    $graph->yaxis->HideTicks(false,false);
+    
+    $graph->xgrid->Show();
+    $graph->xgrid->SetLineStyle("solid");
+    $graph->xaxis->SetTickLabels($arrayx);
+    $graph->xgrid->SetColor('#E3E3E3');
+    
+    // Create the first line
+    $p1 = new LinePlot($arrayy);
+    $graph->Add($p1);
+    $p1->SetColor("#6495ED");
+    $p1->SetLegend('Line 1');
+
+    $graph->legend->SetFrameWeight(1);
+    
+    // Output line
+    $graph->Stroke();
+*/
+    /////////////// Graficooooooooooooooohhh
+    $p = new chartphp(); 
+
+    // data array is populated from example data file 
+    $p->data = $line_chart_data; 
+    $p->chart_type = "line"; 
+
+    // Common Options 
+    $p->title = "Line Chart"; 
+    $p->xlabel = "Months"; 
+    $p->ylabel = "Sales"; 
+    $p->series_label = array("2014","2015","2016","2017"); 
+    //$p->shape="vhv"; 
+    //$p->options["axes"]["yaxis"]["tickOptions"]["prefix"] = '$'; 
+    $p->color ="soft"; // Choices are "metro" "soft" 
+    $out = $p->render('c1');
+
 $conn->close();
-/*echo $result;0.
-print'
-<div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Da Big Table</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
-                </tr>
-              </tfoot>
-              <tbody>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>System Architect</td>
-                  <td>Edinburgh</td>
-                  <td>61</td>
-                  <td>2011/04/25</td>
-                  <td>$320,800</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    ';*/
+/*
     // content="text/plain; charset=utf-8"
     require_once ('jpgraph/jpgraph.php');
     require_once ('jpgraph/jpgraph_line.php');
@@ -211,3 +199,5 @@ print'
     
     // Output line
     $graph->Stroke();
+ * */
+ 

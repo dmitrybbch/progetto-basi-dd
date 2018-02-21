@@ -89,7 +89,7 @@
             </div>
             <div class="card-footer small">
               <!-- Menu a cascata -->
-              <form action="chartQueries.php" method="post" id="barChartQueryForm">
+              <form action="premadeQueries.php" method="post" id="barChartQueryForm">
                 <div class="form-group">
                   <label for="inputQueryBarChart">Select the data to show:</label>
                   <select class="form-control" id="inputQueryBarChart" onchange="this.form.submit()">
@@ -99,6 +99,30 @@
                     <option value="query3">Query 3</option>
                     <option value="query4">Query 4</option>
                   </select>
+                </div>
+                <div class="form-group">
+                  <table>
+                    <tr class="form-group">
+                      <td><label for="birthyear"><strong>Anno di nascita: </strong></label></td>
+                      <td><input type="text" name="birthyear" class="form-control" id="birthyear" placeholder="Anno di nascita dell'artista" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
+                    </tr>
+                    <tr>
+                      <td><label for="deatyear"><strong>Anno di morte: </strong></label></td>
+                      <td><input type="text" name="deathyear" class="form-control" id="deathyear" placeholder="Anno di nascita dell'artista" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
+                    </tr>
+                    <tr>
+                      <td><label for="gender"><strong>Sesso: </strong></label></td>  
+                      <td><input type="text" name="gender" class="form-control" id="gender"></td>
+                    </tr>
+                    <tr>
+                      <td><label for="birthplace"><strong>Luogo di nascita: </strong></label></td>
+                      <td><input type="text" name="birthplace" class="form-control" id="birthplace"></td>
+                    </tr>
+                    <tr>
+                      <td><label for="deathplace"><strong>Luogo di morte: </strong></label></td> 
+                      <td><input type="text" name="deathplace" class="form-control" id="deathplace"></td>
+                    </tr>
+                  </table>
                 </div>
               </form>              
               <!-- /Menu a cascata -->
