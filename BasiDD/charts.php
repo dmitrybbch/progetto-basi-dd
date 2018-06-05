@@ -5,6 +5,8 @@ $password = "984yu54";   ///Cambiare in base alla persona
 $servername = "localhost";
 $dbname = "musei";
 
+$sql = "SELECT COUNT(*) as numOpere FROM artwork WHERE year BETWEEN '1/01/2010' AND '31/12/2015' GROUP BY year";
+
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Mannaaggiaaaaaaaaa hai fallitoooo: " . $conn->connect_error);
