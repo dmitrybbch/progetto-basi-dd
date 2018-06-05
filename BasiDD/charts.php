@@ -1,3 +1,45 @@
+<?php 
+//index.php
+$username = "phpmyadmin";
+$password = "984yu54";   ///Cambiare in base alla persona
+$servername = "localhost";
+$dbname = "musei";
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Mannaaggiaaaaaaaaa hai fallitoooo: " . $conn->connect_error);
+}
+$nome = "";
+$birthyear = "";
+$deathyear = "";
+$birthplace = "";
+$deathplace = "";
+$gender="";
+
+if(array_key_exists('gender', $_POST)){
+  $gender = $_POST['gender'];
+}
+$nome = $_POST['name'];
+$birthyear = $_POST['birthyear'];
+$deathyear = $_POST['deathyear'];
+$birthplace = $_POST['birthplace'];
+$deathplace = $_POST['deathplace'];
+
+$sql = "SELECT * FROM artist WHERE 
+  name LIKE '%{$nome}%' 
+  AND gender = $gender
+  AND year_of_birth LIKE '%{$birthyear}%'
+  AND year_of_death LIKE '%{$deathyear}%'
+  AND place_of_birth LIKE '%{$birthplace}%'
+  AND place_of_death LIKE '%{$deathplace}%'";
+$chart_data = '';
+while($row = mysqli_fetch_array($sql))
+{
+ $chart_data .= "{ name:'".$row["name"]."', birthday:".$row["birthday"].", deathyear:".$row["deathyear"].", birthplace:".$row["birthplace"]."}, ";
+}
+$chart_data = substr($chart_data, 0, -2);
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 
@@ -18,7 +60,13 @@
   <link href="css/sb-admin.css" rel="stylesheet">
   <!-- PHP Chart creator styles -->
   <link rel="stylesheet" href="/lib/js/chartphp.css">
-  
+
+ <!-- COSE PER I GRAFICI -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+ <!-- /COSE PER I GRAFICI -->
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -81,6 +129,12 @@
       <div class="row mb-3">
         <div class="col-lg-8">
           <!--Bar Chart -->
+		<div class="container" style="width:900px;">
+		   <h2 align="center">Morris.js chart with PHP & Mysql</h2>
+		   <h3 align="center">Last 10 Years Profit, Purchase and Sale Data</h3>   
+		   <br /><br />
+		   <div id="chart"></div>
+		</div>
           <div class="card mb-3">
             <div class="card-header">
               <i class="fa fa-bar-chart"></i> Bar Charts</div>
@@ -141,7 +195,7 @@
             </div>
             <div class="card-footer small">
               <!-- Menu a cascata -->
-              <form action="premadeQueries.php" method="post" id="barChartQueryForm" >
+              <form action="chartQueries.php" method="post" id="barChartQueryForm" >
                 <div class="form-group">
                   <label for="inputQueryBarChart">Select the data to show:</label>
                   <select class="form-control" id="inputQueryBarChart" onchange="this.form.submit()">
@@ -224,7 +278,17 @@
     <script src="js/sb-admin-charts.js"></script>
     <!-- PHP Chart creator js file -->
     <script src="lib/js/chartphp.js"></script>
-    
+    <script>
+	Morris.Bar({
+	 element : 'chart',
+	 data:[<?php echo $chart_data; ?>],
+	 xkey:'birthyear',
+	 ykeys:['profit', 'purchase', 'sale'],
+	 labels:['Profit', 'Purchase', 'Sale'],
+	 hideHover:'auto',
+	 stacked:true
+	});
+</script>
   </div>
 </body>
 </html>
