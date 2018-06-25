@@ -201,7 +201,7 @@ $chart_data = substr($chart_data, 0, -2);
                 <div class="form-group">
                   <label for="inputQueryBarChart">Select the data to show:</label>
                   <select class="form-control" id="inputQueryBarChart" onchange="this.form.submit()">
-                    <option value="methodfrequency">Method Frequency</option>
+                    <option value="methodfrequency">Artists' tendencies in time'</option>
                     <option value="query1">Query 1</option>
                     <option value="query2">Query 2</option>
                     <option value="query3">Query 3</option>

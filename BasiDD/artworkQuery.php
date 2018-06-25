@@ -5,8 +5,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 //connessione al database
-$username = "root";
-$password = "password"; ///Cambiare in base alla persona
+$username = "pippo";
+$password = "topolino"; ///Cambiare in base alla persona
 $servername = "localhost";
 $dbname = "musei";
 
