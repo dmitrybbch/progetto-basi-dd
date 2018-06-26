@@ -54,8 +54,6 @@ print'
                   <th>Birth Year</th>
                   <th>Death Year</th>
                   <th>Birth Place</th>
-                  <th>Death Place</th>
-                  <th>Gender</th>
                 </tr>
               </thead>
               <tfoot>
@@ -64,8 +62,6 @@ print'
                   <th>Birth Year</th>
                   <th>Death Year</th>
                   <th>Birth Place</th>
-                  <th>Death Place</th>
-                  <th>Gender</th>
                 </tr>
               </tfoot>
               <tbody>
@@ -74,7 +70,7 @@ if ($result=mysqli_query($conn,$sql))
   {
   while ($obj=mysqli_fetch_object($result)){
     print'<tr>';
-    printf("<td>%s</td>, <td>%s</td>",$obj->id, $obj->name);
+    printf("<td>%s</td><td>%s</td><td>%s</td><td>%s</td>",$obj->name, $obj->year_of_birth, $obj->year_of_death, $obj->place_of_birth);
     print'</tr>';
     
     }
