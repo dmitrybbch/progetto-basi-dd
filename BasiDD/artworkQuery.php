@@ -34,7 +34,7 @@ $sql = "SELECT * FROM artwork WHERE
   AND artist_role LIKE '%{$artistrole}%'
   AND title LIKE '%{$title}%'
   AND year LIKE '%{$creationyear}%'
-  AND medium LIKE '%{$creationMethod}%'";
+  AND medium LIKE '%{$creationmethod}%'";
   
 
 
@@ -68,7 +68,7 @@ if ($result=mysqli_query($conn,$sql))
   while ($obj=mysqli_fetch_object($result))
     {
       print'<tr>';
-      printf("<td>%s</td>, <td>%s</td>",$obj->id, $obj->artist);
+      printf("<td>%s</td><td>%s</td><td>%s</td><td>%s</td>",$obj->artist, $obj->title, $obj->year, $obj->medium);
       print'</tr>';
     }
   // Free result set
