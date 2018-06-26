@@ -1,12 +1,12 @@
 <?php
-//verifica della presenza di erroriaghjkl
+//verifica della presenza di errori
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 //connessione al database
 $username = "pippo";
-$password = "topolino"; ///Cambiare in base alla persona
+$password = "topolino";
 $servername = "localhost";
 $dbname = "musei";
 
@@ -47,46 +47,18 @@ print'
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Accession number</th>
                   <th>Artist</th>
-                  <th>Artist role</th>
                   <th>Title</th>
-                  <th>Date text</th>
-                  <th>Medium</th>
-                  <th>Credits</th>
                   <th>Year</th>
-                  <th>Acquisition year</th>
-                  <th>Width</th>
-                  <th>Height</th>
-                  <th>Depth</th>
-                  <th>Units</th>
-                  <th>Inscription</th>
-                  <th>Thumbnail copyright</th>
-                  <th>Thumbnail URL</th>
-                  <th>Url</th>
+                  <th>Medium</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-                <th>ID</th>
-                <th>Accession number</th>
-                <th>Artist</th>
-                <th>Artist role</th>
-                <th>Title</th>
-                <th>Date text</th>
-                <th>Medium</th>
-                <th>Credits</th>
-                <th>Year</th>
-                <th>Acquisition year</th>
-                <th>Width</th>
-                <th>Height</th>
-                <th>Depth</th>
-                <th>Units</th>
-                <th>Inscription</th>
-                <th>Thumbnail copyright</th>
-                <th>Thumbnail URL</th>
-                <th>Url</th>
+                  <th>Artist</th>
+                  <th>Title</th>
+                  <th>Year</th>
+                  <th>Medium</th>
                 </tr>
               </tfoot>
               <tbody>
@@ -96,7 +68,7 @@ if ($result=mysqli_query($conn,$sql))
   while ($obj=mysqli_fetch_object($result))
     {
       print'<tr>';
-      printf("<td>%d</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td> <td>%s</td>",$obj->id, $obj->accession_number, $obj->artist, $obj->artist_role, $obj->title, $obj->date_text, $obj->medium, $obj->credit_line, $obj->year, $obj->acquisition_year, $obj->width, $obj->height, $obj->depth, $obj->units, $obj->inscription, $obj->thumbnail_copyright, $obj->thumbnail_url, $obj->url);
+      printf("<td>%s</td>, <td>%s</td>",$obj->id, $obj->artist);
       print'</tr>';
     }
   // Free result set
