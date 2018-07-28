@@ -39,6 +39,7 @@ $sql = "SELECT * FROM artwork WHERE
 
 
 print'
+
 <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> Da Big Table</div>
@@ -81,6 +82,8 @@ print'
           </div>
         </div>
       </div>
+    </div>
+    </div>
     </div>
 ';
 

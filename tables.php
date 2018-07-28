@@ -161,7 +161,7 @@
           </div>
         </div>
       </div>
-    </div>
+
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
@@ -192,7 +192,7 @@
     <script src="js/sb-admin-datatables.min.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
     
-  </div>
+
 </body>
 
 </html>
