@@ -88,10 +88,10 @@
       </div>
       <div class="row">
         <div class="col-lg-8">
-          <!-- Example Bar Chart Card-->
+          <!-- Bar Chart Card-->
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fa fa-bar-chart"></i> Bar Chart Example</div>
+              <i class="fa fa-bar-chart"></i>Trash per Year</div>
             <div class="card-body">
               <!--<canvas id="myBarChart" width="100" height="50"></canvas>-->
                 <div id="chart-container">
@@ -109,26 +109,26 @@
                             $.post("worksPerYear.php",
                                 function (data)
                                 {
-                                    console.log(data);
-                                    var name = [];
-                                    var marks = [];
+                                    //console.log(data);
+                                    var years = [];
+                                    var works = [];
 
                                     for (var i in data) {
-                                        name.push(data[i].year);
-                                        marks.push(data[i].conto_opere);
+                                        years.push(data[i].year);
+                                        works.push(data[i].conto_opere);
 
                                     }
 
                                     var chartdata = {
-                                        labels: name,
+                                        labels: years,
                                         datasets: [
                                             {
-                                                label: 'Works per year',
+                                                label: 'Number of Works',
                                                 backgroundColor: '#49e2ff',
                                                 borderColor: '#46d5f1',
                                                 hoverBackgroundColor: '#CCCCCC',
                                                 hoverBorderColor: '#666666',
-                                                data: marks
+                                                data: works
                                             }
                                         ]
                                     };
@@ -144,59 +144,9 @@
                     }
                 </script>
             </div>
-
-            <!-- MENU A CASCATA -->
-              <form action="worksPerYear.php" method="post" id="barChartQueryForm">
-                  <div class="form-group">
-                      <label for="inputQueryBarChart">Select the data to show:</label>
-                      <select class="form-control" id="inputQueryBarChart" onchange="this.form.submit()">
-                          <option value="worksperyear">Works Per Year</option>
-                          <option value="query1">Query 1</option>
-                          <option value="query2">Query 2</option>
-                          <option value="query3">Query 3</option>
-                          <option value="query4">Query 4</option>
-                      </select>
-                  </div>
-                  <div class="form-group">
-                      <table>
-                          <tr class="form-group">
-                              <td><label for="birthyear"><strong>Anno di nascita: </strong></label></td>
-                              <td><input type="text" name="birthyear" class="form-control" id="birthyear" placeholder="Anno di nascita dell'artista" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
-                          </tr>
-                          <tr>
-                              <td><label for="deatyear"><strong>Anno di morte: </strong></label></td>
-                              <td><input type="text" name="deathyear" class="form-control" id="deathyear" placeholder="Anno di nascita dell'artista" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></td>
-                          </tr>
-                          <tr>
-                              <td><label for="gender"><strong>Sesso: </strong></label></td>
-                              <td><input type="text" name="gender" class="form-control" id="gender"></td>
-                          </tr>
-                          <tr>
-                              <td><label for="birthplace"><strong>Luogo di nascita: </strong></label></td>
-                              <td><input type="text" name="birthplace" class="form-control" id="birthplace"></td>
-                          </tr>
-                          <tr>
-                              <td><label for="deathplace"><strong>Luogo di morte: </strong></label></td>
-                              <td><input type="text" name="deathplace" class="form-control" id="deathplace"></td>
-                          </tr>
-                      </table>
-                  </div>
-              </form>
-              <!-- /MENU A CASCATA-->
           </div>
         </div>
-        <div class="col-lg-4">
-          <!-- Example Pie Chart Card-->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-pie-chart"></i> Sesso degli artisti</div>
-            <div class="card-body">
-              <canvas id="pieChart" width="100%" height="100"></canvas>
-            </div>
 
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-          </div>
-        </div>
       </div>
     </div>
     <!-- /.container-fluid-->
