@@ -106,7 +106,7 @@
                     function showGraph()
                     {
                         {
-                            $.post("premadeQueries.php",
+                            $.post("worksPerYear.php",
                                 function (data)
                                 {
                                     console.log(data);
@@ -116,7 +116,7 @@
                                     for (var i in data) {
                                         name.push(data[i].year);
                                         marks.push(data[i].conto_opere);
-                                        console.log(data[i].year + " " + data[i].conto_opere);
+                                        console.log(data[i].year + " aerg " + data[i].conto_opere);
                                     }
 
                                     var chartdata = {
