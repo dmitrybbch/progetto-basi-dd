@@ -84,6 +84,7 @@
         <div class="card-body">
           <canvas id="myAreaChart" width="100%" height="30"></canvas>
         </div>
+
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
       </div>
       <div class="row">
@@ -95,7 +96,7 @@
             <div class="card-body">
               <!--<canvas id="myBarChart" width="100" height="50"></canvas>-->
                 <div id="chart-container">
-                    <canvas id="graphCanvas"></canvas>
+                    <canvas id="graphCanvas" width="100%" height="30"></canvas>
                 </div>
                 <script>
                     $(document).ready(function () {

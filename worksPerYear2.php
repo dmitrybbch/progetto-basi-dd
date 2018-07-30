@@ -9,8 +9,7 @@ error_reporting(E_ALL);
 header('Content-Type: application/json');
 $conn = mysqli_connect("localhost","pippo","topolino","musei");
 
-$sqlQuery = "SELECT COUNT(*) as conto_opere, year FROM artwork GROUP BY year";
-
+$sqlQuery = "SELECT COUNT(*) as conto_opere, acquisition_year WHERE 0FROM artwork GROUP BY year";
 
 $result = mysqli_query($conn,$sqlQuery);
 $anniCount = array();
