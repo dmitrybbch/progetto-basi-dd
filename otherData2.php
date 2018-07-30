@@ -79,14 +79,233 @@
             <li class="breadcrumb-item active">Tables</li>
         </ol>
         <!-- Example DataTables Card-->
-        <div class="card mb-3">
-            <div class="card-header">
-                <i class="fa fa-table"></i> Find Wannabe Artists and Artworks
-            </div>
-            <div class="card-body">
-                <!--             --------------------------------------------------------         -->
-            </div>
+
+        <?php
+        //connessione al database
+        $username = "pippo";
+        $password = "topolino";
+        $servername = "localhost";
+        $dbname = "musei";
+
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+        // controllo della connessione
+        if ($conn->connect_error) {
+            die("Mannaaggiaaaaaaaaa hai fallitoooo: " . $conn->connect_error);
+        }
+        //query 1
+        /*
+        $sql = "SELECT COUNT (*) AS numero_opere, artist.name FROM `artist` WHERE artist.id=artwork.artist_id ORDER BY numero_opere DESC";
+
+        print'
+<div class="content-wrapper">
+<div class="container-fluid">
+<div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Da Big Table</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Birth Year</th>
+                  <th>Death Year</th>
+                  <th>Birth Place</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Name</th>
+                  <th>Birth Year</th>
+                  <th>Death Year</th>
+                  <th>Birth Place</th>
+                </tr>
+              </tfoot>
+              <tbody>
+';
+        if ($result=mysqli_query($conn,$sql))
+        {
+            while ($obj=mysqli_fetch_object($result)){
+                print'<tr>';
+                printf("<td>%s</td><td>%s</td><td>%s</td><td>%s</td>",$obj->name, $obj->numero_opere);
+                print'</tr>';
+
+            }
+            // Free result set
+            mysqli_free_result($result);
+        }
+
+        print'
+              </tbody>
+            </table>
+          </div>
         </div>
+      </div>
+    </div>
+    </div>
+    </div>
+</div>
+</div>
+';
+        */
+        //query 2
+        $sql = "SELECT title, artist, year, medium, url FROM artwork WHERE year>=1 ORDER BY year";
+
+        print'
+
+<div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Da Big Table</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Birth Year</th>
+                  <th>Death Year</th>
+                  <th>Birth Place</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Name</th>
+                  <th>Birth Year</th>
+                  <th>Death Year</th>
+                  <th>Birth Place</th>
+                </tr>
+              </tfoot>
+              <tbody>
+';
+        if ($result=mysqli_query($conn,$sql))
+        {
+            while ($obj=mysqli_fetch_object($result)){
+                print'<tr>';
+                printf("<td>%s</td><td>%s</td><td>%s</td><td>%s</td>",$obj->title, $obj->artist, $obj->year, $obj->medium, $obj->url);
+                print'</tr>';
+
+            }
+            // Free result set
+            mysqli_free_result($result);
+        }
+
+        print'
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+';
+        //query 3
+        $sql = "SELECT COUNT (*) AS num_opere, name from artist WHERE gender='male' AND artist.id=artwork.artist_id ORDER BY num_opere DESC";
+        print'
+<div class="content-wrapper">
+<div class="container-fluid">
+<div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Da Big Table</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Birth Year</th>
+                  <th>Death Year</th>
+                  <th>Birth Place</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Name</th>
+                  <th>Birth Year</th>
+                  <th>Death Year</th>
+                  <th>Birth Place</th>
+                </tr>
+              </tfoot>
+              <tbody>
+';
+        if ($result=mysqli_query($conn,$sql))
+        {
+            while ($obj=mysqli_fetch_object($result)){
+                print'<tr>';
+                printf("<td>%s</td><td>%s</td><td>%s</td><td>%s</td>",$obj->num_opere, $obj->name);
+                print'</tr>';
+
+            }
+            // Free result set
+            mysqli_free_result($result);
+        }
+
+        print'
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+</div>
+</div>
+';
+        //query 4
+        $sql = "SELECT COUNT (*) AS num_opere, name from artist WHERE gender='female' AND artist.id=artwork.artist_id ORDER BY num_opere DESC";
+        print'
+<div class="content-wrapper">
+<div class="container-fluid">
+<div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Da Big Table</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Birth Year</th>
+                  <th>Death Year</th>
+                  <th>Birth Place</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Name</th>
+                  <th>Birth Year</th>
+                  <th>Death Year</th>
+                  <th>Birth Place</th>
+                </tr>
+              </tfoot>
+              <tbody>
+';
+        if ($result=mysqli_query($conn,$sql))
+        {
+            while ($obj=mysqli_fetch_object($result)){
+                print'<tr>';
+                printf("<td>%s</td><td>%s</td><td>%s</td><td>%s</td>",$obj->num_opere, $obj->name);
+                print'</tr>';
+
+            }
+            // Free result set
+            mysqli_free_result($result);
+        }
+
+        print'
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+</div>
+</div>
+';
+        ?>
 
         <!-- /.container-fluid-->
         <!-- /.content-wrapper-->
@@ -122,229 +341,3 @@
 </body>
 
 </html>
-
-<?php
-//connessione al database
-$username = "pippo";
-$password = "topolino";
-$servername = "localhost";
-$dbname = "musei";
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// controllo della connessione
-if ($conn->connect_error) {
-    die("Mannaaggiaaaaaaaaa hai fallitoooo: " . $conn->connect_error);
-}
-//query 1
-$sql = "SELECT COUNT (*) AS numero_opere, artist.name FROM `artist` WHERE artist.id=artwork.artist_id ORDER BY numero_opere DESC";
-
-print'
-<div class="content-wrapper">
-<div class="container-fluid">
-<div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Da Big Table</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Birth Year</th>
-                  <th>Death Year</th>
-                  <th>Birth Place</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Name</th>
-                  <th>Birth Year</th>
-                  <th>Death Year</th>
-                  <th>Birth Place</th>
-                </tr>
-              </tfoot>
-              <tbody>
-';
-if ($result=mysqli_query($conn,$sql))
-{
-    while ($obj=mysqli_fetch_object($result)){
-        print'<tr>';
-        printf("<td>%s</td><td>%s</td><td>%s</td><td>%s</td>",$obj->name, $obj->numero_opere);
-        print'</tr>';
-
-    }
-    // Free result set
-    mysqli_free_result($result);
-}
-
-print'
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    </div>
-</div>
-</div>
-';
-//query 2
-$sql = "SELECT title, artist, year, medium, url FROM artwork WHERE year>=1 ORDER BY year";
-
-print'
-<div class="content-wrapper">
-<div class="container-fluid">
-<div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Da Big Table</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Birth Year</th>
-                  <th>Death Year</th>
-                  <th>Birth Place</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Name</th>
-                  <th>Birth Year</th>
-                  <th>Death Year</th>
-                  <th>Birth Place</th>
-                </tr>
-              </tfoot>
-              <tbody>
-';
-if ($result=mysqli_query($conn,$sql))
-{
-    while ($obj=mysqli_fetch_object($result)){
-        print'<tr>';
-        printf("<td>%s</td><td>%s</td><td>%s</td><td>%s</td>",$obj->title, $obj->artist, $obj->year, $obj->medium, $obj->url);
-        print'</tr>';
-
-    }
-    // Free result set
-    mysqli_free_result($result);
-}
-
-print'
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    </div>
-</div>
-</div>
-';
-//query 3
-$sql = "SELECT COUNT (*) AS num_opere, name from artist WHERE gender='male' AND artist.id=artwork.artist_id ORDER BY num_opere DESC";
-print'
-<div class="content-wrapper">
-<div class="container-fluid">
-<div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Da Big Table</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Birth Year</th>
-                  <th>Death Year</th>
-                  <th>Birth Place</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Name</th>
-                  <th>Birth Year</th>
-                  <th>Death Year</th>
-                  <th>Birth Place</th>
-                </tr>
-              </tfoot>
-              <tbody>
-';
-if ($result=mysqli_query($conn,$sql))
-{
-    while ($obj=mysqli_fetch_object($result)){
-        print'<tr>';
-        printf("<td>%s</td><td>%s</td><td>%s</td><td>%s</td>",$obj->num_opere, $obj->name);
-        print'</tr>';
-
-    }
-    // Free result set
-    mysqli_free_result($result);
-}
-
-print'
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    </div>
-</div>
-</div>
-';
-//query 4
-$sql = "SELECT COUNT (*) AS num_opere, name from artist WHERE gender='female' AND artist.id=artwork.artist_id ORDER BY num_opere DESC";
-print'
-
-<div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Da Big Table</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Birth Year</th>
-                  <th>Death Year</th>
-                  <th>Birth Place</th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Name</th>
-                  <th>Birth Year</th>
-                  <th>Death Year</th>
-                  <th>Birth Place</th>
-                </tr>
-              </tfoot>
-              <tbody>
-';
-if ($result=mysqli_query($conn,$sql))
-{
-    while ($obj=mysqli_fetch_object($result)){
-        print'<tr>';
-        printf("<td>%s</td><td>%s</td><td>%s</td><td>%s</td>",$obj->num_opere, $obj->name);
-        print'</tr>';
-
-    }
-    // Free result set
-    mysqli_free_result($result);
-}
-
-print'
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    </div>
-';
-?>
