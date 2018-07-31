@@ -88,11 +88,10 @@
 
             </div>
           </div>
-          <!-- Card Columns Example Social Feed-->
+
           
           <hr class="mt-2">
           <div class="card-columns">
-            <!-- Example Social Card-->
             
             
           </div>

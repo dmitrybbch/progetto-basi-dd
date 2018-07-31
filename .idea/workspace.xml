@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="712ee944-3dd8-4a62-a937-e65cca78dbb4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/charts.php" beforeDir="false" afterPath="$PROJECT_DIR$/chart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlOriginals/blank.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlOriginals/blank.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlOriginals/cards.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlOriginals/cards.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlOriginals/charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlOriginals/chart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlOriginals/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlOriginals/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlOriginals/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlOriginals/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htmlOriginals/tables.html" beforeDir="false" afterPath="$PROJECT_DIR$/htmlOriginals/tables.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/otherData.php" beforeDir="false" afterPath="$PROJECT_DIR$/htmlOriginals/otherData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/otherData2.php" beforeDir="false" afterPath="$PROJECT_DIR$/otherData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tables.php" beforeDir="false" afterPath="$PROJECT_DIR$/tables.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worksPerYear2.php" beforeDir="false" afterPath="$PROJECT_DIR$/htmlOriginals/worksPerYear2.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,8 +94,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="86" column="107" selection-start-line="86" selection-start-column="107" selection-end-line="86" selection-end-column="107" />
+            <state relative-caret-position="645">
+              <caret line="93" column="36" selection-start-line="93" selection-start-column="36" selection-end-line="93" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -297,12 +284,12 @@
       <workItem from="1532800958501" duration="11584000" />
       <workItem from="1532866563318" duration="2757000" />
       <workItem from="1532874303823" duration="11661000" />
-      <workItem from="1532963113883" duration="14950000" />
+      <workItem from="1532963113883" duration="15021000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49145000" />
+    <option name="totallyTimeSpent" value="49216000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="26" width="1920" height="1053" extended-state="6" />
@@ -459,8 +446,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="86" column="107" selection-start-line="86" selection-start-column="107" selection-end-line="86" selection-end-column="107" />
+        <state relative-caret-position="645">
+          <caret line="93" column="36" selection-start-line="93" selection-start-column="36" selection-end-line="93" selection-end-column="36" />
         </state>
       </provider>
     </entry>
