@@ -22,7 +22,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.php"> <img style="max-width:45%;" src="tate-logo.png"> Wannabe Museum</a>
+    <a class="navbar-brand" href="index.php"> <img style="max-width:45%;" src="tate-logo.png"> Museum</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -37,7 +37,7 @@
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="charts.php">
+          <a class="nav-link" href="chart.php">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Charts</span>
           </a>
@@ -48,13 +48,13 @@
             <span class="nav-link-text">Make your query</span>
           </a>
         </li>
-        
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Other Data">
-          <a class="nav-link" href="otherData.php">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Other Data</span>
-          </a>
-        </li>
+
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="The Biggest of The Biggest">
+              <a class="nav-link" href="otherData.php">
+                  <i class="fa fa-fw fa-link"></i>
+                  <span class="nav-link-text">The Biggest of The Biggest</span>
+              </a>
+          </li>
       </ul>
     <!-- TOGGLE SIDE NAV -->
       <ul class="navbar-nav sidenav-toggler">
