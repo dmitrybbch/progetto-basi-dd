@@ -1,4 +1,4 @@
-<?php
+  <?php
 //verifica della presenza di errori
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -55,6 +55,7 @@ print'
                   <th>Birth Year</th>
                   <th>Death Year</th>
                   <th>Birth Place</th>
+				  <th>Url</th>
                 </tr>
               </thead>
               <tfoot>
@@ -63,6 +64,7 @@ print'
                   <th>Birth Year</th>
                   <th>Death Year</th>
                   <th>Birth Place</th>
+				  <th>Webpage</th>
                 </tr>
               </tfoot>
               <tbody>
@@ -71,7 +73,7 @@ if ($result=mysqli_query($conn,$sql))
   {
   while ($obj=mysqli_fetch_object($result)){
     print'<tr>';
-    printf("<td>%s</td><td>%s</td><td>%s</td><td>%s</td>",$obj->name, $obj->year_of_birth, $obj->year_of_death, $obj->place_of_birth);
+    printf("<td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td>",$obj->name, $obj->year_of_birth, $obj->year_of_death, $obj->place_of_birth, "<a href=".$obj->url.">Artist's webpage</a>");
     print'</tr>';
     
     }

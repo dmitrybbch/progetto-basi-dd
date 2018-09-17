@@ -22,21 +22,19 @@ $artistrole = "";
 $title = "";
 $creationyear = "";
 $creationmethod = "";
-
 $artistname = $_POST['artistname'];
 $artistrole = $_POST['artistrole'];
 $title = $_POST['title'];
 $creationyear = $_POST['creationyear'];
 $creationmethod = $_POST['creationmethod'];
 
+//query da inviare
 $sql = "SELECT * FROM artwork WHERE 
   artist LIKE '%{$artistname}%' 
   AND artist_role LIKE '%{$artistrole}%'
   AND title LIKE '%{$title}%'
   AND year LIKE '%{$creationyear}%'
   AND medium LIKE '%{$creationmethod}%'";
-  
-
 
 print'
 
@@ -51,7 +49,7 @@ print'
                   <th>Artist</th>
                   <th>Title</th>
                   <th>Year</th>
-                  <th>Medium</th>
+                  <th>Webpage</th>
                 </tr>
               </thead>
               <tfoot>
@@ -59,7 +57,7 @@ print'
                   <th>Artist</th>
                   <th>Title</th>
                   <th>Year</th>
-                  <th>Medium</th>
+                  <th>Webpage</th>
                 </tr>
               </tfoot>
               <tbody>
@@ -69,7 +67,7 @@ if ($result=mysqli_query($conn,$sql))
   while ($obj=mysqli_fetch_object($result))
     {
       print'<tr>';
-      printf("<td>%s</td><td>%s</td><td>%s</td><td>%s</td>",$obj->artist, $obj->title, $obj->year, $obj->medium);
+      printf("<td>%s</td><td>%s</td><td>%s</td><td>%s</td>",$obj->artist, $obj->title, $obj->year, "<a href=".$obj->url.">Artwork's webpage</a>");
       print'</tr>';
     }
   // Free result set

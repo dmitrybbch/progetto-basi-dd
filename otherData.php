@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>The Biggest of The Biggest</title>
+    <title>Best of</title>
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template-->
@@ -49,10 +49,10 @@
                 </a>
             </li>
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="The Biggest of The Biggest">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Best of">
                 <a class="nav-link" href="htmlOriginals/otherData.php">
                     <i class="fa fa-fw fa-link"></i>
-                    <span class="nav-link-text">The Biggest of The Biggest</span>
+                    <span class="nav-link-text">Best of</span>
                 </a>
             </li>
         </ul>
@@ -94,8 +94,8 @@
             die("Mannaaggiaaaaaaaaa hai fallitoooo: " . $conn->connect_error);
         }
         //query 1
-        /*
-        $sql = "SELECT COUNT (*) AS numero_opere, artist.name FROM `artist` WHERE artist.id=artwork.artist_id ORDER BY numero_opere DESC";
+        
+        $sql = "SELECT COUNT(*) AS numero_opere, name FROM `artist` JOIN `artwork` WHERE artist.id=artwork.artist_id ORDER BY numero_opere DESC";
 
         print'
 <div class="content-wrapper">
@@ -109,17 +109,13 @@
             <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Birth Year</th>
-                  <th>Death Year</th>
-                  <th>Birth Place</th>
+                  <th>Amount of artworks made</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
                   <th>Name</th>
-                  <th>Birth Year</th>
-                  <th>Death Year</th>
-                  <th>Birth Place</th>
+                  <th>Amount of artworks made</th>
                 </tr>
               </tfoot>
               <tbody>
@@ -128,9 +124,8 @@
         {
             while ($obj=mysqli_fetch_object($result)){
                 print'<tr>';
-                printf("<td>%s</td><td>%s</td><td>%s</td><td>%s</td>",$obj->name, $obj->numero_opere);
+                printf("<td>%s</td><td>%s</td>",$obj->name, $obj->numero_opere);
                 print'</tr>';
-
             }
             // Free result set
             mysqli_free_result($result);
@@ -148,7 +143,8 @@
 </div>
 </div>
 ';
-        */
+        
+		/*
         //query 2
         $sql = "SELECT title, medium, width,height,inscription, width*height/100 as dim_art FROM `artwork` WHERE artist_id = 558 ORDER BY dim_art DESC";
 

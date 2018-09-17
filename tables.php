@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Make Your Query</title>
+  <title>Find artists and artworks</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -30,10 +30,10 @@
 
     <!-- BARRA DI SINISTRA CON LE ALTRE PAGINE -->
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Homepage">
           <a class="nav-link" href="index.php">
             <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Dashboard</span>
+            <span class="nav-link-text">Homepage</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
@@ -45,16 +45,9 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="MakeYourQuery">
           <a class="nav-link" href="tables.php">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Make your query</span>
+            <span class="nav-link-text">Find artists and artworks</span>
           </a>
         </li>
-
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="The Biggest of The Biggest">
-              <a class="nav-link" href="otherData.php">
-                  <i class="fa fa-fw fa-link"></i>
-                  <span class="nav-link-text">The Biggest of The Biggest</span>
-              </a>
-          </li>
       </ul>
     <!-- TOGGLE SIDE NAV -->
       <ul class="navbar-nav sidenav-toggler">
@@ -74,14 +67,14 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="#">Homepage</a>
         </li>
         <li class="breadcrumb-item active">Tables</li>
       </ol>
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Find Wannabe Artists and Artworks
+          <i class="fa fa-table"></i> Find Artists and Artworks
         </div>
         <div class="card-body">
           <div style="float: left">
@@ -164,7 +157,7 @@
 
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
+    <!--<footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
           <small>Copyright © Nobody 2018</small>

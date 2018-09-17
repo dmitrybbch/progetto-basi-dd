@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Pies And Charts</title>
+  <title>Charts</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -32,10 +32,10 @@
 
     <!-- BARRA DI SINISTRA CON LE ALTRE PAGINE -->
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Homepage">
           <a class="nav-link" href="index.php">
             <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Dashboard</span>
+            <span class="nav-link-text">Homepage</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
@@ -48,13 +48,6 @@
           <a class="nav-link" href="tables.php">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Make your query</span>
-          </a>
-        </li>
-        
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Biggest of the Biggest">
-          <a class="nav-link" href="otherData.php">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Biggest of the Biggest</span>
           </a>
         </li>
       </ul>
@@ -73,7 +66,7 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="#">Homepage</a>
         </li>
         <li class="breadcrumb-item active">Chart</li>
       </ol>
@@ -83,7 +76,7 @@
           <!-- Bar Chart Card-->
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fa fa-bar-chart"></i>Number of works per Year</div>
+              <i class="fa fa-bar-chart"></i> Number of works per Year</div>
             <div class="card-body">
               <!--<canvas id="myBarChart" width="100" height="50"></canvas>-->
                 <div id="chart-container">
