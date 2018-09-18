@@ -73,6 +73,14 @@
         </ol>
         <!-- Example DataTables Card-->
 
+        <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> TATE</div>
+        <div class="card-body"> 
+            Tate is an institution that houses, in a network of four art museums, the United Kingdom's national collection of British art, and international modern and contemporary art.
+            The whole Tate Museum's collection has more than 60000 artworks made by more than 3000 artists.
+        </div>
+        </div>
         <?php
         //connessione al database
         $username = "pippo";
@@ -92,11 +100,10 @@
         $sql = "SELECT name, COUNT(*) as num_opere FROM `artist` LEFT JOIN `artwork` ON artist.id = artist_id GROUP BY name ORDER BY num_opere DESC";
 
         print'
-<div class="content-wrapper">
-<div class="container-fluid">
+
 <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Artisti più contribuenti</div>
+          <i class="fa fa-table"></i> Artists with most contribution</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -134,8 +141,7 @@
     </div>
     </div>
     </div>
-</div>
-</div>
+
 ';
         
         //query sulle opere esposte 
@@ -199,7 +205,8 @@
 ';
 
         ?>
-
+        
+        
         <!-- /.container-fluid-->
         <!-- /.content-wrapper-->
         <!--<footer class="sticky-footer">

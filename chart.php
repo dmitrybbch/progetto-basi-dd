@@ -80,7 +80,7 @@
             <div class="card-body">
               <!--<canvas id="myBarChart" width="100" height="50"></canvas>-->
                 <div id="chart-container">
-                    <canvas id="graphCanvas" width="100%" height="30"></canvas>
+                    <canvas id="graphCanvas"></canvas>
                 </div>
                 <script>
                     $(document).ready(function () {
@@ -109,7 +109,7 @@
                                         datasets: [
                                             {
                                                 label: 'Number of Works',
-                                                backgroundColor: '#49e2ff',
+                                                backgroundColor: '#000080',
                                                 borderColor: '#46d5f1',
                                                 hoverBackgroundColor: '#CCCCCC',
                                                 hoverBorderColor: '#666666',
@@ -124,12 +124,72 @@
                                         type: 'bar',
                                         data: chartdata
                                     });
+                                    //console.log(data);
                                 });
                         }
                     }
                 </script>
             </div>
           </div>
+          
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-bar-chart"></i> Number of works per acquisition year</div>
+            <div class="card-body">
+              <!--<canvas id="myBarChart" width="100" height="50"></canvas>-->
+                <div id="chart-container">
+                    <canvas id="graphCanvas2"></canvas>
+                </div>
+                <script>
+                    $(document).ready(function () {
+                        showGraf();
+                    });
+
+
+                    function showGraf()
+                    {
+                        {
+                            $.post("worksPerAcY.php",
+                                function (data)
+                                {
+                                    //console.log(data);
+                                    var years = [];
+                                    var works = [];
+
+                                    for (var i in data) {
+                                        years.push(data[i].acquisition_year);
+                                        works.push(data[i].conto_opere);
+
+                                    }
+
+                                    var chartdata = {
+                                        labels: years,
+                                        datasets: [
+                                            {
+                                                label: 'Number of Works',
+                                                backgroundColor: '#008080',
+                                                borderColor: '#46d5f1',
+                                                hoverBackgroundColor: '#CCCCCC',
+                                                hoverBorderColor: '#666666',
+                                                data: works
+                                            }
+                                        ]
+                                    };
+
+                                    var graphTarget = $("#graphCanvas2");
+
+                                    var barGraph = new Chart(graphTarget, {
+                                        type: 'bar',
+                                        data: chartdata
+                                    });
+                                    //console.log(data);
+                                });
+                        }
+                    }
+                </script>
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -139,7 +199,7 @@
     <footer class="sticky-footer">
       <div class="container">
         <div class="text-center">
-          <small>Copyright © Your Website 2017</small>
+          <small>Copyright © Nobody 2018</small>
         </div>
       </div>
     </footer>
